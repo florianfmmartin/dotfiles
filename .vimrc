@@ -1,145 +1,151 @@
-" vim plugins
-call plug#begin('~/.vim/plugged')
+"-------------"
+" vim plugins "
+"-------------"
+        call plug#begin('~/.vim/plugged')
 
-" theme plugins
-Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
-Plug 'joshdick/onedark.vim'
+        " theme plugins
+        " Plug 'morhetz/gruvbox'
+        " Plug 'arcticicestudio/nord-vim'
+        Plug 'joshdick/onedark.vim'
 
-" airline plugin
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+        " airline plugin
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
 
-" FuZzy File plugin
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+        " FuZzy File plugin
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
 
-" ctags
-Plug 'majutsushi/tagbar'
+        " tcomment plugin
+        Plug 'tomtom/tcomment_vim'
 
-" tcomment plugin
-Plug 'tomtom/tcomment_vim'
+        " fugitive plugin
+        Plug 'tpope/vim-fugitive'
 
-" fugitive (git)
-Plug 'tpope/vim-fugitive'
+        " nerdtree plugin
+        Plug 'scrooloose/nerdtree'
+        Plug 'xuyuanp/nerdtree-git-plugin'
+        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" nerdtree
-Plug 'scrooloose/nerdtree'
-Plug 'xuyuanp/nerdtree-git-plugin'
-" Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+        " surronds plugin
+        Plug 'tpope/vim-surround'
 
-" surronds
-Plug 'tpope/vim-surround'
+        " css color plugin
+        Plug 'ap/vim-css-color'
 
-" css color
-Plug 'ap/vim-css-color'
+        " git gutter plugin
+        Plug 'airblade/vim-gitgutter'
 
-" git gutter
-Plug 'airblade/vim-gitgutter'
+        " startify plugin
+        Plug 'mhinz/vim-startify'
 
-" ale
-Plug 'w0rp/ale'
+        call plug#end()
 
-call plug#end()
+"----------"
+" settings "
+"----------"
+        "----------"
+        " built in "
+        "----------"
+                " leader
+                let mapleader = ","
 
-" leader
-let mapleader = ","
+                " tab and indent
+                set tabstop=4
+                set softtabstop=4
+                set expandtab
+                set autoindent
+                set smarttab
 
-" color
-set termguicolors
-colorscheme onedark
-let g:airline_powerline_fonts = 1
-let g:airline_theme='lucius'
-set noshowmode
+                " numbers
+                set number relativenumber
 
-" tab and indent
-set tabstop=4
-set softtabstop=4
-set expandtab
+                " config ui
+                set lazyredraw
+                set showmatch " show matching "([{
+                set showcmd " shows the ungoing command
+                filetype plugin on
+                set ruler
+                set wildmenu
+                set scrolloff=4
 
-" numbers
-set number relativenumber
+                " searching
+                set incsearch
+                set hlsearch
+                nnoremap <leader><space> :noh<CR>
 
-" config ui
-set lazyredraw
-set showmatch " show matching "([{
-set showcmd " shows the ungoing command
-filetype plugin on
+                " extra line management
+                nnoremap <leader>o o<Esc>
 
-" searching
-set incsearch
-set hlsearch
-nnoremap <leader><space> :noh<CR>
+                " fold
+                set foldenable
+                set foldlevelstart=10
+                set foldmethod=indent
 
-" insert
-nnoremap <leader>o o<Esc>
+                " invisibles
+                set listchars=eol:¬,space:·
+                set list
 
-" fold
-set foldenable
-set foldlevelstart=10
-set foldmethod=indent
+                " tab navigation
+                nnoremap <leader>t :tabn<CR>
+                nnoremap <leader>s <C-w><C-w>
 
-" invisibles
-set listchars=eol:¬,space:·
-set list
+                " split navigation
+                set splitright
+                nnoremap <C-J> <C-W><C-J>
+                nnoremap <C-K> <C-W><C-K>
+                nnoremap <C-L> <C-W><C-L>
+                nnoremap <C-H> <C-W><C-H>
 
-" tab navigation
-nnoremap <leader>t :tabn<CR>
-nnoremap <leader>s <C-w><C-w>
+                " autocompletion setup
+                inoremap <leader>n <C-n>
+                inoremap <leader>p <C-p>
+                inoremap <leader><Esc> <C-e>
+                set completeopt=menuone
+                set cursorline
+                set shortmess+=c
+                inoremap ( ()<++><Esc>F(:noh<Enter>a
+                inoremap { {}<++><Esc>F{:noh<Enter>a
+                inoremap [ []<++><Esc>F[:noh<Enter>a
 
-" split navigation
-set splitright
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+                " naviguation
+                nnoremap zm z.
+                nnoremap <Up> <Nop>
+                nnoremap <Down> <Nop>
+                nnoremap <Left> <Nop>
+                nnoremap <Right> <Nop>
+                inoremap <Up> <Nop>
+                inoremap <Down> <Nop>
+                inoremap <Left> <Nop>
+                inoremap <Right> <Nop>
+                vnoremap <Up> <Nop>
+                vnoremap <Down> <Nop>
+                vnoremap <Left> <Nop>
+                vnoremap <Right> <Nop>
+                inoremap <leader><leader> <Esc>/<++><Enter>:noh<Enter>"_c4l
+                nnoremap <leader><leader> <Esc>/<++><Enter>:noh<Enter>"_c4l
+                nnoremap ; :
 
-" fzf setup
-nnoremap <leader>f :Files<CR>
-let g:fzf_action = { 'enter': 'tab split' , 'ctrl-n': 'vsplit'}
+        "---------"
+        " plugins "
+        "---------"
+                " theme settings
+                set termguicolors
+                colorscheme onedark
 
-" tcomment setup
-nnoremap <leader>c :TComment<CR>
+                " airline settings
+                let g:airline_powerline_fonts = 1
+                let g:airline_theme='lucius'
+                set noshowmode
 
-" autocompletion setup
-inoremap <leader>n <C-n>
-inoremap <leader>p <C-p>
-inoremap <leader><Esc> <C-e>
-set completeopt=menuone
-set cursorline
-set shortmess+=c
-inoremap ( ()<++><Esc>F(:noh<Enter>a
-inoremap { {}<++><Esc>F{:noh<Enter>a
-inoremap [ []<++><Esc>F[:noh<Enter>a
+                " fzf settings
+                nnoremap <leader>f :Files<CR>
+                let g:fzf_action = { 'enter': 'tab split' , 'ctrl-l': 'vsplit'}
 
-" naviguation
-nnoremap zm z.
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-vnoremap <Up> <Nop>
-vnoremap <Down> <Nop>
-vnoremap <Left> <Nop>
-vnoremap <Right> <Nop>
-inoremap <leader><leader> <Esc>/<++><Enter>:noh<Enter>"_c4l
-nnoremap <leader><leader> <Esc>/<++><Enter>:noh<Enter>"_c4l
-nnoremap ; :
+                " tcomment settings
+                nnoremap <leader>c :TComment<CR>
 
-" NERDTree
-nnoremap <leader>n :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-
-" ctags
-let g:tagbar_ctags_bin='/usr/bin/uctags'
-nnoremap <leader>d :TagbarToggle<CR><C-w><C-l>
-inoremap <leader>d <Esc>:TagbarToggle<CR><C-w><C-l>
-set tags+=tags;/
-
-" git gutter
+                " NERDTree settings
+                nnoremap <leader>n :NERDTreeToggle<CR>
+                let NERDTreeShowHidden=1
 
