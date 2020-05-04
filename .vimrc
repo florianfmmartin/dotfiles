@@ -57,17 +57,22 @@
                 set autoindent
                 set smarttab
 
-                " numbers
+                " numbers column
                 set number relativenumber
+                set signcolumn=yes
 
                 " config ui
+                set nocompatible
                 set lazyredraw
                 set showmatch " show matching "([{
                 set showcmd " shows the ungoing command
+                set showtabline=2
                 filetype plugin on
                 set ruler
                 set wildmenu
                 set scrolloff=4
+                set path+=**
+                set timeoutlen=100
 
                 " searching
                 set incsearch
@@ -107,6 +112,10 @@
                 inoremap ( ()<++><Esc>F(:noh<Enter>a
                 inoremap { {}<++><Esc>F{:noh<Enter>a
                 inoremap [ []<++><Esc>F[:noh<Enter>a
+
+                " move line visual
+                xnoremap K :move '<-2<CR>gv-gv
+                xnoremap J :move '>+1<CR>gv-gv
 
                 " naviguation
                 nnoremap zm z.
@@ -148,4 +157,29 @@
                 " NERDTree settings
                 nnoremap <leader>n :NERDTreeToggle<CR>
                 let NERDTreeShowHidden=1
+
+                " startify settings
+                if !has('nvim')
+                        let g:startify_custom_header = [
+                        \ '         _            ',
+                        \ ' __   __(_) _ __ ___  ',
+                        \ ' \ \ / /| || ''_ ` _ \ ',
+                        \ '  \ V / | || | | | | |',
+                        \ '   \_/  |_||_| |_| |_|',
+                        \ '',
+                        \ '',
+                        \ ]
+                endif
+
+                if has('nvim')
+                        let g:startify_custom_header = [
+                        \ '                        _            ',
+                        \ '  _ __   ___  _____   _(_)_ __ ___   ',
+                        \ ' | ''_ \ / _ \/ _ \ \ / / | ''_ ` _ \  ',
+                        \ ' | | | |  __/ (_) \ V /| | | | | | | ',
+                        \ ' |_| |_|\___|\___/ \_/ |_|_| |_| |_| ',
+                        \ '',
+                        \ '',
+                        \ ]
+                endif
 
