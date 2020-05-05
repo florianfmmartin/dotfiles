@@ -39,6 +39,9 @@
         " startify plugin
         Plug 'mhinz/vim-startify'
 
+        " goyo plugin
+        Plug 'junegunn/goyo.vim'
+
         call plug#end()
 
 "----------"
@@ -72,7 +75,7 @@
                 set wildmenu
                 set scrolloff=4
                 set path+=**
-                set timeoutlen=100
+                set timeoutlen=300
 
                 " searching
                 set incsearch
@@ -149,7 +152,7 @@
 
                 " fzf settings
                 nnoremap <leader>f :Files<CR>
-                let g:fzf_action = { 'enter': 'tab split' , 'ctrl-l': 'vsplit'}
+                let g:fzf_action = { 'enter': 'tab split' , 'ctrl-l': 'vsplit' }
 
                 " tcomment settings
                 nnoremap <leader>c :TComment<CR>
@@ -182,4 +185,7 @@
                         \ '',
                         \ ]
                 endif
+
+                " goyo settings
+                nnoremap <leader>gy :Goyo<CR> :set showmode<CR>
 

@@ -208,6 +208,7 @@ export FZF_DEFAULT_COMMAND='find .'
 alias ohmydot='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias vim='TERM=xterm-256color nvim'
 alias nvim='TERM=xterm-256color nvim'
+alias scrot='cd && cd Images/ && scrot && cd'
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then

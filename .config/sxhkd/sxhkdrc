@@ -4,7 +4,7 @@
 
 # terminal emulator
 alt + Return
-	lxterminal
+	kitty
 
 # program launcher
 alt + @space
@@ -36,7 +36,7 @@ super + c
 
 # ranger
 super + r
-	lxterminal -e 'ranger'
+	kitty -e 'ranger'
 
 # pcmanfm
 super + p
