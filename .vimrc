@@ -42,6 +42,9 @@
         " goyo plugin
         Plug 'junegunn/goyo.vim'
 
+        " undo tree plugin
+        Plug 'mbbill/undotree'
+
         call plug#end()
 
 "----------"
@@ -188,4 +191,7 @@
 
                 " goyo settings
                 nnoremap <leader>gy :Goyo<CR> :set showmode<CR>
+
+                " undo tree settings
+                nnoremap <leader>ut :UndotreeToggle<CR>
 
