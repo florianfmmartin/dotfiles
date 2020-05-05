@@ -205,7 +205,7 @@ source ~/git/agnoster-zsh-theme/agnoster.zsh-theme
 export FZF_DEFAULT_COMMAND='find .'
 
 # alias for git bare dofiles
-alias ohmydot='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias omd='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias vim='TERM=xterm-256color nvim'
 alias nvim='TERM=xterm-256color nvim'
 alias scrot='cd && cd Images/ && scrot && cd'

@@ -61,7 +61,6 @@
                 set softtabstop=4
                 set expandtab
                 set autoindent
-                set smarttab
 
                 " numbers column
                 set number relativenumber
