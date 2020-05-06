@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# start
+echo 'Start of remaping...'
+
 sleep 3
 
 # caps lock = escape
@@ -12,4 +16,7 @@ xmodmap -e "keycode  60 = period quotedbl period quotedbl hyphen NoSymbol hyphen
 
 # map shift + 2 to @
 xmodmap -e "keycode  11 = 2 at 2 at at NoSymbol at NoSymbol 2 quotedbl at"
+
+# end
+echo 'Remap done!'
 
