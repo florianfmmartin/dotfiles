@@ -208,6 +208,7 @@ export FZF_DEFAULT_COMMAND='find .'
 alias omd='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias vim='TERM=xterm-256color nvim'
 alias nvim='TERM=xterm-256color nvim'
+alias vimrc='TERM=xterm-256color vim ~/.config/nvim/init.vim'
 alias scrot='cd && cd Images/ && scrot && cd'
 
 ### Added by Zinit's installer
@@ -234,4 +235,7 @@ zinit light-mode for \
 
 # ozh plug
 zinit snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
+
+# opam
+eval $(opam env)
 
