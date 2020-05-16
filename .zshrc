@@ -59,6 +59,7 @@ alias i3lock="~/script/lock.sh"
 alias qq='exit'
 alias ocaml='rlwrap ocaml'
 alias ranger='source ranger'
+alias rm='rm -i'
 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
