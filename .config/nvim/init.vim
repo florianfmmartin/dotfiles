@@ -54,6 +54,9 @@
         " vim wiki plugin
         Plug 'vimwiki/vimwiki'
 
+        " float preview
+        Plug 'ncm2/float-preview.nvim'
+
         call plug#end()
 
 "----------"
@@ -86,7 +89,7 @@
                 set showcmd " shows the ungoing command
                 set showtabline=2
                 set ruler
-                set scrolloff=4
+                set scrolloff=8
                 set path+=**
                 set timeoutlen=300
                 set clipboard+=unnamedplus
@@ -152,6 +155,22 @@
                 nnoremap <leader><leader> <Esc>la
                 nnoremap ; :
 
+                " function! CommandPalette()
+                "         let buf = nvim_create_buf(v:false, v:true)
+                "         let opts = {'relative': 'editor', 'width': 40, 'height': 3, 'col': 68,
+                "                   \ 'row': 2, 'anchor': 'NW', 'style': 'minimal'}
+                "         let win = nvim_open_win(buf, 1, opts)
+                "         call ActivatePalette()
+                " endfunction
+                "
+                " function! ActivatePalette()
+                "         inoremap <CR> <Esc>V"ay:q<CR>:call DeactivatePalette()<CR>:<C-R>a<CR>
+                " endfunction
+                "
+                " function! DeactivatePalette()
+                "         inoremap <CR> <CR>
+                " endfunction
+
         "---------"
         " plugins "
         "---------"
@@ -162,6 +181,9 @@
                 " airline settings
                 let g:airline_powerline_fonts = 1
                 let g:airline_theme='lucius'
+                let g:airline_section_error=''
+                let g:airline_section_warning=''
+
                 set noshowmode
 
                 " fzf settings
@@ -219,11 +241,12 @@
                     \ 'ocaml' : ['/home/florian/.opam/default/bin/ocamllsp'],
                     \ 'cpp'   : ['/usr/bin/ccls'],
                     \ }
-                " let g:LanguageClient_useVirtualText = "No"
                 let g:LanguageClient_useFloatingHover = 1
-                " let g:LanguageClient_diagnosticsMaxSeverity = "Error"
 
                 nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
                 nnoremap <leader>ld :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>
                 nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+
+                " float preview settings
+                let g:float_preview#docked=0
 

@@ -20,8 +20,8 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
 HISTSIZE=1000
 SAVEHIST=500
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
 
@@ -57,6 +57,8 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 alias ls="ls -A --color"
 alias i3lock="~/script/lock.sh"
 alias qq='exit'
+alias ocaml='rlwrap ocaml'
+alias ranger='source ranger'
 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -208,7 +210,7 @@ export FZF_DEFAULT_COMMAND='find .'
 alias omd='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias vim='TERM=xterm-256color nvim'
 alias nvim='TERM=xterm-256color nvim'
-alias vimrc='TERM=xterm-256color vim ~/.config/nvim/init.vim'
+alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/init.vim'
 alias scrot='cd && cd Images/ && scrot && cd'
 
 ### Added by Zinit's installer

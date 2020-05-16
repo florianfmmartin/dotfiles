@@ -5,6 +5,9 @@ echo 'Start of remaping...'
 
 sleep 3
 
+# set keyboard speed
+xset r rate 275 50
+
 # caps lock = escape
 xmodmap -e 'keycode 66 = Escape'
 
