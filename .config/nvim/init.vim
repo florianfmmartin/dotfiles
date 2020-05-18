@@ -57,6 +57,12 @@
         " float preview
         Plug 'ncm2/float-preview.nvim'
 
+        " better syntax
+        Plug 'bfrg/vim-cpp-modern'
+        Plug 'pangloss/vim-javascript'
+        Plug 'ocaml/vim-ocaml'
+        Plug 'vim-python/python-syntax'
+
         call plug#end()
 
 "----------"
@@ -249,4 +255,7 @@
 
                 " float preview settings
                 let g:float_preview#docked=0
+
+                " better syntax settings
+                let g:python_highlight_all = 1
 
