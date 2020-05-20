@@ -60,6 +60,7 @@ alias qq='exit'
 alias ocaml='rlwrap ocaml'
 alias ranger='source ranger'
 alias rm='rm -i'
+alias upup='pamac update -a'
 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -241,4 +242,7 @@ zinit snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
 
 # opam
 eval $(opam env)
+
+# vi mode
+bindkey -v
 

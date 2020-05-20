@@ -98,9 +98,12 @@
                 set scrolloff=8
                 set path+=**
                 set timeoutlen=300
-                set clipboard+=unnamedplus
                 set cursorline
                 call matchadd('DiffDelete', '\%81v')
+
+                " clipboard
+                set clipboard+=unnamedplus
+                vnoremap t $hy
 
                 " searching
                 set incsearch
