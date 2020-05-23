@@ -6,19 +6,17 @@ echo 'Start of remaping...'
 sleep 3
 
 # set keyboard speed
-xset r rate 275 50
+xset r rate 250 75
 
 # caps lock = escape
 xmodmap -e 'keycode 66 = Escape'
-
 # deactivate caps locking
 xmodmap -e 'clear lock'
 
 # map shift + . to "
-xmodmap -e "keycode  60 = period quotedbl period quotedbl hyphen NoSymbol hyphen"
-
+xmodmap -e "keycode 60 = period quotedbl period quotedbl hyphen NoSymbol hyphen"
 # map shift + 2 to @
-xmodmap -e "keycode  11 = 2 at 2 at at NoSymbol at NoSymbol 2 quotedbl at"
+xmodmap -e "keycode 11 = 2 at 2 at at NoSymbol at NoSymbol 2 quotedbl at"
 
 # end
 echo 'Remap done!'

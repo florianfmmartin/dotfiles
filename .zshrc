@@ -60,7 +60,7 @@ alias qq='exit'
 alias ocaml='rlwrap ocaml'
 alias ranger='source ranger'
 alias rm='rm -i'
-alias upup='pamac update -a'
+alias uu='pamac update -a'
 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -71,6 +71,11 @@ alias gitu='git add . && git commit && git push'
 autoload -U compinit colors zcalc
 compinit -d
 colors
+
+# kitty completion
+autoload -Uz compinit
+compinit
+kitty + complete setup zsh | source /dev/stdin
 
 # enable substitution for prompt
 setopt prompt_subst
@@ -245,4 +250,7 @@ eval $(opam env)
 
 # vi mode
 bindkey -v
+#
+# # open tmux by default to zsh
+# [ -z "$TMUX" ] && { tmux attach -t zsh-0 || exec tmux new-session -t zsh;}
 

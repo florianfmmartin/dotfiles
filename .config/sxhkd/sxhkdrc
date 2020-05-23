@@ -12,7 +12,7 @@ alt + @space
 
 # drun rofi
 alt + shift + @space
-    rofi -font "fira code retina 14" -show drun
+	rofi -font "fira code retina 14" -show drun
 
 # activities
 alt + Tab 
@@ -28,15 +28,11 @@ ctrl + shift + alt + l
 
 # lock screen
 ctrl + alt + l
-    ~/script/lock.sh
+	~/script/lock.sh
 
 # chrome
 super + c
 	chromium
-
-# ranger
-super + r
-	kitty -e 'ranger'
 
 # pcmanfm
 super + p
@@ -48,15 +44,15 @@ super + p
 
 # audio
 XF86Audio{Raise,Lower}Volume
-    amixer set Master 5%{+,-}
+	amixer set Master 5%{+,-}
 
 # audio mute
 XF86AudioMute
-    amixer set Master toggle
+	amixer set Master toggle
 
 # backlight
 XF86Audio{Prev,Next}
-    xbacklight {-dec,-inc} 5
+	xbacklight {-dec,-inc} 5
 
 #
 # bspwm hotkeys
@@ -92,7 +88,7 @@ super + {t,shift + t,s,f}
 
 # set the node flags
 # super + ctrl + {m,x,y,z}
-# 	bspc node -g {marked,locked,sticky,private}
+#	bspc node -g {marked,locked,sticky,private}
 
 #
 # focus/swap
@@ -104,11 +100,11 @@ super + {_,shift + }{h,j,k,l}
 
 # focus with arrows
 super + {Left,Down,Up,Right}
-    bspc node -f {west,south,north,east} 
+	bspc node -f {west,south,north,east} 
 
 # focus the node for the given path jump
 # super + {p,b,comma,period}
-# 	bspc node -f @{parent,brother,first,second}
+#	bspc node -f @{parent,brother,first,second}
 
 focus the next/previous node in the current desktop
 super + {_,shift + }n
@@ -116,17 +112,17 @@ super + {_,shift + }n
 
 # focus the next/previous desktop in the current monitor
 # super + bracket{left,right}
-# 	bspc desktop -f {prev,next}.local
+#	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
 # super + {grave,Tab}
-# 	bspc {node,desktop} -f last
+#	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 # super + {o,i}
-# 	bspc wm -h off; \
-# 	bspc node {older,newer} -f; \
-# 	bspc wm -h on
+#	bspc wm -h off; \
+#	bspc node {older,newer} -f; \
+#	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}

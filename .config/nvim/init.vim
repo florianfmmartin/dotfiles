@@ -63,6 +63,15 @@
         Plug 'ocaml/vim-ocaml'
         Plug 'vim-python/python-syntax'
 
+        " vim-tmux-runner
+        Plug 'christoomey/vim-tmux-runner'
+
+        " vim be good
+        Plug 'ThePrimeagen/vim-be-good'
+
+        " which key again...
+        Plug 'liuchengxu/vim-which-key'
+
         call plug#end()
 
 "----------"
@@ -74,15 +83,34 @@
                 " leader
                 let mapleader = ","
 
+                " prefix dict
+                let g:which_key_map =  {}
+                let g:which_key_sep = '->'
+                call which_key#register(',', "g:which_key_map")
+                let g:which_key_map = {
+                    \ ',' : 'which_key_ignore',
+                    \ }
+
                 " tab and indent
                 set tabstop=4
                 set softtabstop=4
                 set expandtab
                 set autoindent
                 set nosmarttab
+                autocmd Filetype cpp setlocal noexpandtab
+
+                function LeaderReTab(len)
+                        let &l:tabstop = a:len
+                        let &l:softtabstop = a:len
+                        %retab!
+                endfunction
+
+                nnoremap <leader>rt :call LeaderReTab(
+                let g:which_key_map.r = { 'name' : 'reload' }
+                let g:which_key_map.r.t = 'tab'
 
                 " numbers column
-                set number relativenumber
+                set number
                 set signcolumn=yes
 
                 " config ui
@@ -100,6 +128,18 @@
                 set timeoutlen=300
                 set cursorline
                 call matchadd('DiffDelete', '\%81v')
+                nnoremap <leader>rc :w<CR>:source %<CR>
+                let g:which_key_map.r.c = 'config'
+
+                " buffers
+                set hidden
+                nnoremap <leader>bn :bnext<CR>
+                nnoremap <leader>bv :bprevious<CR>
+                nnoremap <leader>bq :bp <BAR> bd #<CR>
+                let g:which_key_map.b = { 'name' : 'buffer' }
+                let g:which_key_map.b.n = 'next'
+                let g:which_key_map.b.v = 'prev'
+                let g:which_key_map.b.q = 'quit'
 
                 " clipboard
                 set clipboard+=unnamedplus
@@ -112,6 +152,7 @@
 
                 " extra line management
                 nnoremap <leader>o O<Esc>
+                let g:which_key_map.o = 'line'
 
                 " fold
                 set foldenable
@@ -119,11 +160,8 @@
                 set foldmethod=indent
 
                 " invisibles
-                set listchars=eol:¬,space:·
+                set listchars=eol:¬,space:·,tab:>\ 
                 set list
-
-                " tab navigation
-                nnoremap <leader>t :tabn<CR>
 
                 " split navigation
                 set splitright
@@ -164,22 +202,6 @@
                 nnoremap <leader><leader> <Esc>la
                 nnoremap ; :
 
-                " function! CommandPalette()
-                "         let buf = nvim_create_buf(v:false, v:true)
-                "         let opts = {'relative': 'editor', 'width': 40, 'height': 3, 'col': 68,
-                "                   \ 'row': 2, 'anchor': 'NW', 'style': 'minimal'}
-                "         let win = nvim_open_win(buf, 1, opts)
-                "         call ActivatePalette()
-                " endfunction
-                "
-                " function! ActivatePalette()
-                "         inoremap <CR> <Esc>V"ay:q<CR>:call DeactivatePalette()<CR>:<C-R>a<CR>
-                " endfunction
-                "
-                " function! DeactivatePalette()
-                "         inoremap <CR> <CR>
-                " endfunction
-
         "---------"
         " plugins "
         "---------"
@@ -192,21 +214,37 @@
                 let g:airline_theme='lucius'
                 let g:airline_section_error=''
                 let g:airline_section_warning=''
+                let g:airline#extensions#tabline#enabled = 1
+                let g:airline#extensions#tabline#fnamemod = ':t'
 
                 set noshowmode
 
                 " fzf settings
                 nnoremap <leader>f :Files<CR>
                 let g:fzf_action = { 'enter': 'tab split' ,
-                                        \ 'ctrl-l': 'vsplit' }
+                                        \ 'ctrl-s': 'vsplit' }
+                let g:which_key_map.f = 'fzf'
 
                 " tcomment settings
                 nnoremap <leader>c :TComment<CR>
                 vnoremap <leader>c :TComment<CR>
+                let g:which_key_map.c = 'comment'
+                let g:which_key_map._ = {
+                    \ 'name' : 'which_key_ignore',
+                    \ }
 
                 " NERDTree settings
                 nnoremap <leader>n :NERDTreeToggle<CR>
                 let NERDTreeShowHidden=1
+                let g:which_key_map.n = 'file'
+
+                " gutter
+                let g:which_key_map.h = {
+                    \ 'name' : 'gutter',
+                    \ 'p' : 'preview',
+                    \ 's' : 'stage',
+                    \ 'u' : 'undo',
+                    \ }
 
                 " startify settings
                 let g:startify_custom_header = [
@@ -225,6 +263,8 @@
 
                 " goyo settings
                 nnoremap <leader>gy :Goyo<CR>
+                let g:which_key_map.g = { 'name' : 'goyo' }
+                let g:which_key_map.g.y = 'goyo'
 
                 let g:goyo_height=45
 
@@ -243,6 +283,8 @@
 
                 " undo tree settings
                 nnoremap <leader>ut :UndotreeToggle<CR>
+                let g:which_key_map.u = { 'name' : 'undo' }
+                let g:which_key_map.u.t = 'tree'
 
                 " lsp settings
                 let g:LanguageClient_serverCommands = {
@@ -251,14 +293,55 @@
                     \ 'cpp'   : ['/usr/bin/ccls'],
                     \ }
                 let g:LanguageClient_useFloatingHover = 1
+                let g:LanguageClient_virtualTextPrefix='-- '
 
                 nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
                 nnoremap <leader>ld :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>
                 nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+                let g:which_key_map.l = { 'name' : 'lang' }
+                let g:which_key_map.l.h = 'hover'
+                let g:which_key_map.l.d = 'def'
+                let g:which_key_map.l.m = 'menu'
+
+                " vimwiki
+                let g:which_key_map.w = { 'name' : 'wiki',
+                    \ 'i' : 'diary',
+                    \ 's' : 'select',
+                    \ 't' : 'tab',
+                    \ 'w' : 'wiki',
+                    \ 'd' : 'delete',
+                    \ 'h' : 'html',
+                    \ 'hh': 'browse',
+                    \ 'r' : 'rename',
+                    \ ',' : {
+                        \ 'name' : 'diary',
+                        \ 'i' : 'generate',
+                        \ 'm' : 'tomorrow',
+                        \ 't' : 'tab',
+                        \ 'w' : 'make',
+                        \ 'y' : 'yesterday',
+                        \ },
+                    \ }
 
                 " float preview settings
                 let g:float_preview#docked=0
 
                 " better syntax settings
                 let g:python_highlight_all = 1
+
+                " vimtmux
+                nnoremap <leader>to :VtrOpenRunner<CR>
+                nnoremap <leader>tl :VtrSendLinesToRunner<CR>
+                nnoremap <leader>tr :VtrClearRunner<CR>
+                let g:which_key_map.t = { 'name' : 'tmux' }
+                let g:which_key_map.t.o = 'open'
+                let g:which_key_map.t.l = 'send line'
+                let g:which_key_map.t.r = 'clear'
+
+                " which key
+                nnoremap <silent> <leader> :WhichKey ','<CR>
+                let g:which_key_use_floating_win = 0
+                autocmd! FileType which_key
+                autocmd  FileType which_key set laststatus=0 noshowmode noruler
+                  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
