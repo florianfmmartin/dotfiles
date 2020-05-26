@@ -72,6 +72,16 @@
         " which key again...
         Plug 'liuchengxu/vim-which-key'
 
+        " ranger
+        Plug 'francoiscabrol/ranger.vim'
+        Plug 'rbgrouleff/bclose.vim'
+
+        " firenvim
+        Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+        " tagbar
+        Plug 'majutsushi/tagbar'
+
         call plug#end()
 
 "----------"
@@ -110,7 +120,7 @@
                 let g:which_key_map.r.t = 'tab'
 
                 " numbers column
-                set number
+                set number relativenumber
                 set signcolumn=yes
 
                 " config ui
@@ -220,10 +230,11 @@
                 set noshowmode
 
                 " fzf settings
-                nnoremap <leader>f :Files<CR>
+                nnoremap <leader>fz :Files<CR>
                 let g:fzf_action = { 'enter': 'tab split' ,
                                         \ 'ctrl-s': 'vsplit' }
-                let g:which_key_map.f = 'fzf'
+                let g:which_key_map.f = { 'name' : 'file' }
+                let g:which_key_map.f.z = 'fzf'
 
                 " tcomment settings
                 nnoremap <leader>c :TComment<CR>
@@ -298,6 +309,7 @@
                 nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
                 nnoremap <leader>ld :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>
                 nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+                let g:LanguageClient_changeThrottle = 2
                 let g:which_key_map.l = { 'name' : 'lang' }
                 let g:which_key_map.l.h = 'hover'
                 let g:which_key_map.l.d = 'def'
@@ -344,4 +356,15 @@
                 autocmd! FileType which_key
                 autocmd  FileType which_key set laststatus=0 noshowmode noruler
                   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+                " ranger
+                let g:ranger_map_keys = 0
+                nnoremap <leader>fr :Ranger<CR>
+                let g:which_key_map.f.r = 'ranger'
+                let g:NERDTreeHijackNetrw = 0
+                let g:ranger_replace_netrw = 1
+                let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+
+                " tagbar
+                nnoremap <leader>ft :TagbarToggle<CR>
 

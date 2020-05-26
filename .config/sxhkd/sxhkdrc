@@ -30,6 +30,10 @@ ctrl + shift + alt + l
 ctrl + alt + l
 	~/script/lock.sh
 
+# polybar hide
+super + b
+	~/script/bartoggle.sh
+
 # chrome
 super + c
 	chromium
@@ -37,6 +41,10 @@ super + c
 # pcmanfm
 super + p
 	pcmanfm
+
+# ranger
+alt + shift + Return
+	kitty -e ~/script/ranger.sh
 
 #
 # audio and backligh
@@ -170,4 +178,4 @@ super + shift + {Left,Right}
 
 # change gap
 super + shift + {Up,Down}
-	bspc config window_gap $(($(bspc config window_gap) {-,+} 5))
+	bspc config window_gap $(($(bspc config window_gap) {-,+} 3))

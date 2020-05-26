@@ -6,10 +6,10 @@
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 
 [colors]
-background      = #282c34
-foreground      = #abb2bf
-primary         = #4b5263
-alert           = #e06c75
+background = #282c34
+foreground = #abb2bf
+primary    = #4b5263
+alert      = #e06c75
 
 [bar/main]
 width           = 100%
@@ -31,25 +31,25 @@ cursor-scroll   = ns-resize
 enable-ipc      = true
 wm-name         = bspwm
 
-modules-left    = work
-modules-center  = time
-modules-right   = pacman backlight pulse net battery
+modules-left   = work
+modules-center = time
+modules-right  = pacman backlight pulse net battery
 
 [module/battery]
-type                          = internal/battery
-battery                       = BAT0
-adapter                       = AC
-label-charging                = B:%percentage:3%
-label-discharging             = B:%{F#e06c75}%percentage:3%%{F-}
-label-full                    = B:%percentage:3%
+type              = internal/battery
+battery           = BAT0
+adapter           = AC
+label-charging    = B:%percentage:3%
+label-discharging = B:%{F#e06c75}%percentage:3%%{F-}
+label-full        = B:%percentage:3%
 
 [module/time]
-type        = internal/date
-interval    = 1.0
-time        = %R
-time-alt    = %d.%m.%y
-label       = %time%
-label-font  = 2
+type       = internal/date
+interval   = 1.0
+time       = %R
+time-alt   = %d.%m.%y
+label      = %time%
+label-font = 2
 
 [module/work]
 type                      = internal/xworkspaces
@@ -78,35 +78,35 @@ label-muted   = %{T3}M:%{T-}%percentage:3%
 click-right   = exec pavucontrol &
 
 [module/net]
-type                          = internal/network
-interface                     = wlp3s0
-label-connected               = W:%{A1:lxterminal -e nmtui:} ON%{A}
-label-disconnected            = W:%{F#e06c75}%{A1:lxterminal -e nmtui:}OFF%{A}%{F-}
+type               = internal/network
+interface          = wlp3s0
+label-connected    = W:%{A1:lxterminal -e nmtui:} ON%{A}
+label-disconnected = W:%{F#e06c75}%{A1:lxterminal -e nmtui:}OFF%{A}%{F-}
 
 [module/pacman]
-type      = custom/script
-exec      = ~/script/polypacman.sh
-interval  = 600
-format    = <label>
-label     = P:%output:3%
+type     = custom/script
+exec     = ~/script/polypacman.sh
+interval = 600
+format   = <label>
+label    = P:%output:3%
 
 [module/alsa]
-type = internal/alsa
-master-soundcard = default
-speaker-soundcard = default
+type                = internal/alsa
+master-soundcard    = default
+speaker-soundcard   = default
 headphone-soundcard = default
-master-mixer = Master
-speaker-mixer = Speaker
-headphone-mixer = Headphone
-headphone-id = 9
-mapped = true
-interval = 5
-format-volume = <label-volume>
-label-volume = V:%percentage:3%
-label-muted = M:%percentage:3% 
+master-mixer        = Master
+speaker-mixer       = Speaker
+headphone-mixer     = Headphone
+headphone-id        = 9
+mapped              = true
+interval            = 5
+format-volume       = <label-volume>
+label-volume        = V:%percentage:3%
+label-muted         = M:%percentage:3% 
 
 [module/backlight]
-type = internal/xbacklight
+type   = internal/xbacklight
 format = <label>
-label = L:%percentage:3%
+label  = L:%percentage:3%
 

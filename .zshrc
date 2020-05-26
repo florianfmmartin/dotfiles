@@ -61,6 +61,7 @@ alias ocaml='rlwrap ocaml'
 alias ranger='source ranger'
 alias rm='rm -i'
 alias uu='pamac update -a'
+alias rr='source ranger'
 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -248,9 +249,6 @@ zinit snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
 # opam
 eval $(opam env)
 
-# vi mode
-bindkey -v
-#
-# # open tmux by default to zsh
-# [ -z "$TMUX" ] && { tmux attach -t zsh-0 || exec tmux new-session -t zsh;}
+# add script to path
+export "PATH=/home/florian/script:$PATH"
 

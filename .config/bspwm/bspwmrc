@@ -1,14 +1,15 @@
 #! /bin/sh
 
 sxhkd &
+feh --bg-fill ~/Images/opensourceonedark.png &&
 polybar -r main &
 ~/script/xmodmap.sh &
 
-bspc monitor -d I II III IV V VI
+bspc monitor -d I II III IV
 
 # overlap
-bspc config border_width          3
-bspc config window_gap            20
+bspc config border_width          0
+bspc config window_gap            0
 
 bspc config top_padding           30
 
