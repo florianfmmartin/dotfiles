@@ -143,11 +143,11 @@
 
                 " buffers
                 set hidden
-                nnoremap <leader>bn :bnext<CR>
+                nnoremap <leader>bb :bnext<CR>
                 nnoremap <leader>bv :bprevious<CR>
                 nnoremap <leader>bq :bp <BAR> bd #<CR>
                 let g:which_key_map.b = { 'name' : 'buffer' }
-                let g:which_key_map.b.n = 'next'
+                let g:which_key_map.b.b = 'next'
                 let g:which_key_map.b.v = 'prev'
                 let g:which_key_map.b.q = 'quit'
 
