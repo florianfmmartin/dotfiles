@@ -10,3 +10,5 @@ polybar-msg cmd quit
 bspc monitor HDMI1 -d I II III IV
 bspc monitor eDP1 -r
 
+bspc wm -r
+
