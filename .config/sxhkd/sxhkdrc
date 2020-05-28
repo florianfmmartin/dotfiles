@@ -44,7 +44,7 @@ super + p
 
 # ranger
 alt + shift + Return
-	kitty -e ~/script/ranger.sh
+	kitty -e ~/script/vifm.sh
 
 #
 # audio and backligh

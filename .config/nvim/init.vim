@@ -22,11 +22,6 @@
         " fugitive plugin
         Plug 'tpope/vim-fugitive'
 
-        " nerdtree plugin
-        Plug 'scrooloose/nerdtree'
-        Plug 'xuyuanp/nerdtree-git-plugin'
-        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
         " surronds plugin
         Plug 'tpope/vim-surround'
 
@@ -72,15 +67,14 @@
         " which key again...
         Plug 'liuchengxu/vim-which-key'
 
-        " ranger
-        Plug 'francoiscabrol/ranger.vim'
-        Plug 'rbgrouleff/bclose.vim'
-
         " firenvim
         Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
         " tagbar
         Plug 'majutsushi/tagbar'
+
+        " vifm.vim
+        Plug 'vifm/vifm.vim'
 
         call plug#end()
 
@@ -106,6 +100,7 @@
                 set softtabstop=4
                 set expandtab
                 set autoindent
+                set nosmartindent
                 set nosmarttab
                 autocmd Filetype cpp setlocal noexpandtab
 
@@ -137,19 +132,17 @@
                 set path+=**
                 set timeoutlen=300
                 set cursorline
-                call matchadd('DiffDelete', '\%81v')
+                call matchadd('SpellBad', '\%81v')
+                " hi! VertSplit ctermfg=145 guifg=#ABB2BF
+                " set fillchars=vert:\ 
                 nnoremap <leader>rc :w<CR>:source %<CR>
                 let g:which_key_map.r.c = 'config'
 
                 " buffers
                 set hidden
-                nnoremap <leader>bb :bnext<CR>
-                nnoremap <leader>bv :bprevious<CR>
-                nnoremap <leader>bq :bp <BAR> bd #<CR>
-                let g:which_key_map.b = { 'name' : 'buffer' }
-                let g:which_key_map.b.b = 'next'
-                let g:which_key_map.b.v = 'prev'
-                let g:which_key_map.b.q = 'quit'
+                nnoremap gt :bnext<CR>
+                nnoremap gb :bprevious<CR>
+                nnoremap ge :bp <BAR> bd #<CR>
 
                 " clipboard
                 set clipboard+=unnamedplus
@@ -158,6 +151,7 @@
                 " searching
                 set incsearch
                 set hlsearch
+                set ignorecase
                 nnoremap <leader><space> :noh<CR>
 
                 " extra line management
@@ -226,15 +220,15 @@
                 let g:airline_section_warning=''
                 let g:airline#extensions#tabline#enabled = 1
                 let g:airline#extensions#tabline#fnamemod = ':t'
-
+                let g:airline_section_c = '%t'
+                let g:airline_section_z = '%l/%L : %02c'
                 set noshowmode
 
                 " fzf settings
-                nnoremap <leader>fz :Files<CR>
-                let g:fzf_action = { 'enter': 'tab split' ,
-                                        \ 'ctrl-s': 'vsplit' }
-                let g:which_key_map.f = { 'name' : 'file' }
-                let g:which_key_map.f.z = 'fzf'
+                nnoremap <leader>f :FZF ~<CR>
+                nnoremap <leader>z :FZF  <CR>
+                let g:which_key_map.f = 'fzf'
+                let g:which_key_map.z = 'fzf cwd'
 
                 " tcomment settings
                 nnoremap <leader>c :TComment<CR>
@@ -243,11 +237,6 @@
                 let g:which_key_map._ = {
                     \ 'name' : 'which_key_ignore',
                     \ }
-
-                " NERDTree settings
-                nnoremap <leader>n :NERDTreeToggle<CR>
-                let NERDTreeShowHidden=1
-                let g:which_key_map.n = 'file'
 
                 " gutter
                 let g:which_key_map.h = {
@@ -276,7 +265,6 @@
                 nnoremap <leader>gy :Goyo<CR>
                 let g:which_key_map.g = { 'name' : 'goyo' }
                 let g:which_key_map.g.y = 'goyo'
-
                 let g:goyo_height=45
 
                 function! s:goyo_enter()
@@ -357,14 +345,16 @@
                 autocmd  FileType which_key set laststatus=0 noshowmode noruler
                   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-                " ranger
-                let g:ranger_map_keys = 0
-                nnoremap <leader>fr :Ranger<CR>
-                let g:which_key_map.f.r = 'ranger'
-                let g:NERDTreeHijackNetrw = 0
-                let g:ranger_replace_netrw = 1
-                let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
-
                 " tagbar
-                nnoremap <leader>ft :TagbarToggle<CR>
+                nnoremap <leader>lt :TagbarToggle<CR>
+                let g:which_key_map.l.t = 'tagbar'
 
+                " vifm
+                nnoremap <leader>n :leftabove vertical 30Vifm<CR>
+                let g:which_key_map.n = 'vifm'
+                let g:vifm_replace_netrw = 1
+                let g:vifm_embed_split = 1
+                let g:loaded_netrw       = 1
+                let g:loaded_netrwPlugin = 1
+                autocmd BufWinEnter,WinEnter term://* startinsert
+                autocmd BufLeave term://* stopinsert

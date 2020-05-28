@@ -62,6 +62,7 @@ alias ranger='source ranger'
 alias rm='rm -i'
 alias uu='pamac update -a'
 alias rr='source ranger'
+alias fm='vicd'
 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -251,4 +252,18 @@ eval $(opam env)
 
 # add script to path
 export "PATH=/home/florian/script:$PATH"
+
+# add vifm quit to cd
+vicd()
+{
+        local dst="$(command vifm --choose-dir - "$@")"
+        if [ -z "$dst" ]; then
+                echo 'cd cancel'
+                return 1
+        fi
+        cd "$dst"
+}
+
+# tmux ?
+[ -z "$VIRTUAL_ENV" ] && ~/script/zshstart.sh
 
