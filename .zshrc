@@ -63,6 +63,8 @@ alias rm='rm -i'
 alias uu='pamac update -a'
 alias rr='source ranger'
 alias fm='vicd'
+alias fim='nvim $(fzf)'
+alias wiki='nvim ~/vimwiki/index.wiki'
 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -264,6 +266,12 @@ vicd()
         cd "$dst"
 }
 
+# irssi
+alias irc="TERM=tmux irssi"
+
 # tmux ?
 [ -z "$VIRTUAL_ENV" ] && ~/script/zshstart.sh
+
+# add cargo bin to path
+export "PATH=/home/florian/.cargo/bin:$PATH"
 

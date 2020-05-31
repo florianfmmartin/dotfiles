@@ -57,6 +57,7 @@
         Plug 'pangloss/vim-javascript'
         Plug 'ocaml/vim-ocaml'
         Plug 'vim-python/python-syntax'
+        Plug 'rust-lang/rust.vim'
 
         " vim-tmux-runner
         Plug 'christoomey/vim-tmux-runner'
@@ -85,276 +86,370 @@
         " built in "
         "----------"
                 " leader
-                let mapleader = ","
+                        let mapleader = ","
 
                 " prefix dict
-                let g:which_key_map =  {}
-                let g:which_key_sep = '->'
-                call which_key#register(',', "g:which_key_map")
-                let g:which_key_map = {
-                    \ ',' : 'which_key_ignore',
-                    \ }
+                        call which_key#register(',', "g:which_key_map")
+                        let g:which_key_map =  {}
+                        let g:which_key_sep = '->'
+                        let g:which_key_map = {
+                            \ ',' : 'which_key_ignore',
+                            \ }
 
                 " tab and indent
-                set tabstop=4
-                set softtabstop=4
-                set expandtab
-                set autoindent
-                set nosmartindent
-                set nosmarttab
-                autocmd Filetype cpp setlocal noexpandtab
+                        set tabstop=4
+                        set softtabstop=4
+                        set expandtab
+                        set autoindent
+                        set nosmartindent
+                        set nosmarttab
+                        autocmd Filetype cpp setlocal noexpandtab
 
-                function LeaderReTab(len)
-                        let &l:tabstop = a:len
-                        let &l:softtabstop = a:len
-                        %retab!
-                endfunction
+                        function LeaderReTab(len)
+                                let &l:tabstop = a:len
+                                let &l:softtabstop = a:len
+                                %retab!
+                        endfunction
+                        nnoremap <leader>rt :call LeaderReTab(
 
-                nnoremap <leader>rt :call LeaderReTab(
-                let g:which_key_map.r = { 'name' : 'reload' }
-                let g:which_key_map.r.t = 'tab'
+                        let g:which_key_map.r = { 'name' : 'reload' }
+                        let g:which_key_map.r.t = 'tab'
 
                 " numbers column
-                set number relativenumber
-                set signcolumn=yes
+                        set number relativenumber
+                        set signcolumn=yes
 
                 " config ui
-                filetype plugin on
-                syntax on
-                set conceallevel=0
-                let g:vimwiki_conceallevel=0
-                set lazyredraw
-                set showmatch " show matching "([{
-                set showcmd " shows the ungoing command
-                set showtabline=2
-                set ruler
-                set scrolloff=8
-                set path+=**
-                set timeoutlen=300
-                set cursorline
-                call matchadd('SpellBad', '\%81v')
-                " hi! VertSplit ctermfg=145 guifg=#ABB2BF
-                " set fillchars=vert:\ 
-                nnoremap <leader>rc :w<CR>:source %<CR>
-                let g:which_key_map.r.c = 'config'
+                        filetype plugin on
+                        syntax on
+                        set conceallevel=0
+                        set lazyredraw
+                        set showmatch " show matching "([{
+                        set showcmd " shows the ungoing command
+                        set scrolloff=8
+                        set path+=**
+                        set timeoutlen=300
+                        set cursorline
+                        set fillchars=vert:\ 
+                        call matchadd('SpellBad', '\%81v')
+                        hi! VertSplit ctermfg=145 guifg=#ABB2BF
+                        let g:vimwiki_conceallevel=0
+
+                        nnoremap <leader>rc :w<CR>:source %<CR>
+                        let g:which_key_map.r.c = 'config'
 
                 " buffers
-                set hidden
-                nnoremap gt :bnext<CR>
-                nnoremap gb :bprevious<CR>
-                nnoremap ge :bp <BAR> bd #<CR>
+                        set hidden
+                        nnoremap gt :bnext<CR>
+                        nnoremap gb :bprevious<CR>
+                        nnoremap ge :bp <BAR> bd #<CR>
 
                 " clipboard
-                set clipboard+=unnamedplus
-                vnoremap t $hy
+                        set clipboard+=unnamedplus
+                        vnoremap t $hy
+
+                        nnoremap <leader>y yyp
+                        let g:which_key_map.y = "yyp"
 
                 " searching
-                set incsearch
-                set hlsearch
-                set ignorecase
-                nnoremap <leader><space> :noh<CR>
+                        set ignorecase
+
+                        nnoremap <leader><space> :noh<CR>
 
                 " extra line management
-                nnoremap <leader>o O<Esc>
-                let g:which_key_map.o = 'line'
+                        nnoremap <leader>o O<Esc>
+                        let g:which_key_map.o = 'line'
 
                 " fold
-                set foldenable
-                set foldlevelstart=10
-                set foldmethod=indent
+                        set foldlevelstart=10
+                        set foldmethod=indent
 
                 " invisibles
-                set listchars=eol:¬,space:·,tab:>\ 
-                set list
+                        set listchars=eol:¬,space:·,tab:>\ 
+                        set list
 
                 " split navigation
-                set splitright
-                set splitbelow
-                nnoremap <C-J> <C-W><C-J>
-                nnoremap <C-K> <C-W><C-K>
-                nnoremap <C-L> <C-W><C-L>
-                nnoremap <C-H> <C-W><C-H>
+                        set splitright
+                        set splitbelow
+                        nnoremap <C-J> <C-W><C-J>
+                        nnoremap <C-K> <C-W><C-K>
+                        nnoremap <C-L> <C-W><C-L>
+                        nnoremap <C-H> <C-W><C-H>
 
                 " autocompletion setup
-                set completeopt=menuone
-                set shortmess+=c
-                inoremap ( ()<Esc>i
-                inoremap { {}<Esc>i
-                inoremap [ []<Esc>i
-                inoremap " ""<Esc>i
+                        set completeopt=menuone,preview,
+                        set shortmess+=c
+                        inoremap ( ()<Esc>i
+                        inoremap { {}<Esc>i
+                        inoremap [ []<Esc>i
+                        inoremap " ""<Esc>i
 
                 " move line visual
-                xnoremap K :move '<-2<CR>gv-gv
-                xnoremap J :move '>+1<CR>gv-gv
-                xnoremap < <V
-                xnoremap > >V
+                        xnoremap K :move '<-2<CR>gv-gv
+                        xnoremap J :move '>+1<CR>gv-gv
+                        xnoremap < <<CR>gv-gv
+                        xnoremap > ><CR>gv-gv
 
                 " naviguation
-                nnoremap <Up> <Nop>
-                nnoremap <Down> <Nop>
-                nnoremap <Left> <Nop>
-                nnoremap <Right> <Nop>
-                inoremap <Up> <Nop>
-                inoremap <Down> <Nop>
-                inoremap <Left> <Nop>
-                inoremap <Right> <Nop>
-                vnoremap <Up> <Nop>
-                vnoremap <Down> <Nop>
-                vnoremap <Left> <Nop>
-                vnoremap <Right> <Nop>
-                inoremap <leader><leader> <Esc>la
-                nnoremap <leader><leader> <Esc>la
-                nnoremap ; :
+                        noremap <Up> <Nop>
+                        noremap <Down> <Nop>
+                        noremap <Left> <Nop>
+                        noremap <Right> <Nop>
+                        noremap <leader><leader> <Esc>la
+                        nnoremap ; :
+                        nnoremap : ;
+                        noremap - $
+                        inoremap <C-Space> <C-X><C-O>
 
         "---------"
         " plugins "
         "---------"
                 " theme settings
-                set termguicolors
-                colorscheme onedark
+                        set termguicolors
+                        colorscheme onedark
 
                 " airline settings
-                let g:airline_powerline_fonts = 1
-                let g:airline_theme='lucius'
-                let g:airline_section_error=''
-                let g:airline_section_warning=''
-                let g:airline#extensions#tabline#enabled = 1
-                let g:airline#extensions#tabline#fnamemod = ':t'
-                let g:airline_section_c = '%t'
-                let g:airline_section_z = '%l/%L : %02c'
-                set noshowmode
+                        let g:airline_powerline_fonts = 1
+                        let g:airline_theme='lucius'
+                        let g:airline_section_error=''
+                        let g:airline_section_warning=''
+                        let g:airline#extensions#tabline#enabled = 1
+                        let g:airline#extensions#tabline#fnamemod = ':t'
+                        let g:airline_section_c = '%t'
+                        let g:airline_section_z = '%l/%L : %02c'
+                        set noshowmode
 
                 " fzf settings
-                nnoremap <leader>f :FZF ~<CR>
-                nnoremap <leader>z :FZF  <CR>
-                let g:which_key_map.f = 'fzf'
-                let g:which_key_map.z = 'fzf cwd'
+                        let g:fzf_colors =
+                        \ { 'fg':      ['fg', 'Normal'],
+                          \ 'bg':      ['bg', 'Normal'],
+                          \ 'hl':      ['fg', 'Title'],
+                          \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+                          \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+                          \ 'hl+':     ['fg', 'Statement'],
+                          \ 'info':    ['fg', 'PreProc'],
+                          \ 'gutter':  ['bg', 'Normal'],
+                          \ 'border':  ['fg', 'Ignore'],
+                          \ 'prompt':  ['fg', 'Conditional'],
+                          \ 'pointer': ['fg', 'Exception'],
+                          \ 'marker':  ['fg', 'Keyword'],
+                          \ 'spinner': ['fg', 'Label'],
+                          \ 'header':  ['fg', 'Comment'] }
+                        nnoremap <leader>f :FZF ~<CR>
+                        nnoremap <leader>z :FZF  <CR>
+                        nnoremap <leader>sb :Lines <CR>
+                        nnoremap <leader>lg :Tags <CR>
+                        let g:which_key_map.f = 'fzf'
+                        let g:which_key_map.z = 'fzf cwd'
+                        let g:which_key_map.s = {
+                            \ 'name' : 'search',
+                            \ 'b' : 'buffers',
+                            \ }
 
                 " tcomment settings
-                nnoremap <leader>c :TComment<CR>
-                vnoremap <leader>c :TComment<CR>
-                let g:which_key_map.c = 'comment'
-                let g:which_key_map._ = {
-                    \ 'name' : 'which_key_ignore',
-                    \ }
+                        nnoremap <leader>c :TComment<CR>
+                        vnoremap <leader>c :TComment<CR>
+                        let g:which_key_map.c = 'comment'
+                        let g:which_key_map._ = {
+                            \ 'name' : 'which_key_ignore',
+                            \ }
 
                 " gutter
-                let g:which_key_map.h = {
-                    \ 'name' : 'gutter',
-                    \ 'p' : 'preview',
-                    \ 's' : 'stage',
-                    \ 'u' : 'undo',
-                    \ }
+                        let g:which_key_map.h = {
+                            \ 'name' : 'gutter',
+                            \ 'p' : 'preview',
+                            \ 's' : 'stage',
+                            \ 'u' : 'undo',
+                            \ }
 
                 " startify settings
-                let g:startify_custom_header = [
-                \ '                        _            ',
-                \ '  _ __   ___  _____   _(_)_ __ ___   ',
-                \ ' | ''_ \ / _ \/ _ \ \ / / | ''_ ` _ \  ',
-                \ ' | | | |  __/ (_) \ V /| | | | | | | ',
-                \ ' |_| |_|\___|\___/ \_/ |_|_| |_| |_| ',
-                \ '',
-                \ '',
-                \ ]
-                let g:startify_files_number = 18
-                let g:startify_lists = [
-                  \ { 'type': 'dir',       'header': ['   Recent files'] },
-                  \ ]
+                        let g:startify_files_number = 41
+                        let g:startify_custom_header = [
+                        \ '                        _            ',
+                        \ '  _ __   ___  _____   _(_)_ __ ___   ',
+                        \ ' | ''_ \ / _ \/ _ \ \ / / | ''_ ` _ \  ',
+                        \ ' | | | |  __/ (_) \ V /| | | | | | | ',
+                        \ ' |_| |_|\___|\___/ \_/ |_|_| |_| |_| ',
+                        \ '',
+                        \ '',
+                        \ ]
+                        let g:startify_lists = [
+                          \ { 'type': 'dir', 'header': ['   Recently Used'] },
+                          \ ]
 
                 " goyo settings
-                nnoremap <leader>gy :Goyo<CR>
-                let g:which_key_map.g = { 'name' : 'goyo' }
-                let g:which_key_map.g.y = 'goyo'
-                let g:goyo_height=45
+                        let g:goyo_height=45
 
-                function! s:goyo_enter()
-                        set showmode
-                        set nocursorline
-                endfunction
+                        function! s:goyo_enter()
+                                set showmode
+                                set nocursorline
+                        endfunction
 
-                function! s:goyo_leave()
-                        set noshowmode
-                        set cursorline
-                endfunction
+                        function! s:goyo_leave()
+                                set noshowmode
+                                set cursorline
+                        endfunction
 
-                autocmd! User GoyoEnter nested call <SID>goyo_enter()
-                autocmd! User GoyoLeave nested call <SID>goyo_leave()
+                        autocmd! User GoyoEnter nested call <SID>goyo_enter()
+                        autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+                        nnoremap <leader>gy :Goyo<CR>
+                        let g:which_key_map.g = { 'name' : 'goyo' }
+                        let g:which_key_map.g.y = 'goyo'
 
                 " undo tree settings
-                nnoremap <leader>ut :UndotreeToggle<CR>
-                let g:which_key_map.u = { 'name' : 'undo' }
-                let g:which_key_map.u.t = 'tree'
+                        nnoremap <leader>ut :UndotreeToggle<CR>
+                        let g:which_key_map.u = { 'name' : 'undo' }
+                        let g:which_key_map.u.t = 'tree'
 
                 " lsp settings
-                let g:LanguageClient_serverCommands = {
-                    \ 'python': ['/home/florian/.local/bin/pyls'],
-                    \ 'ocaml' : ['/home/florian/.opam/default/bin/ocamllsp'],
-                    \ 'cpp'   : ['/usr/bin/ccls'],
-                    \ }
-                let g:LanguageClient_useFloatingHover = 1
-                let g:LanguageClient_virtualTextPrefix='-- '
+                        set completefunc=LanguageClient#complete
 
-                nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-                nnoremap <leader>ld :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>
-                nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-                let g:LanguageClient_changeThrottle = 2
-                let g:which_key_map.l = { 'name' : 'lang' }
-                let g:which_key_map.l.h = 'hover'
-                let g:which_key_map.l.d = 'def'
-                let g:which_key_map.l.m = 'menu'
+                        " let g:LanguageClient_changeThrottle = 2
+                        let g:LanguageClient_serverCommands = {
+                            \ 'python': ['/home/florian/.local/bin/pyls'],
+                            \ 'ocaml' : ['/home/florian/.opam/default/bin/ocamllsp'],
+                            \ 'cpp'   : ['/usr/bin/ccls'],
+                            \ 'rust'   : ['rust-analyzer'],
+                            \ }
+                        let g:LanguageClient_useFloatingHover = 1
+                        let g:LanguageClient_virtualTextPrefix='-- '
+
+                        function! HideDiagnostics()
+                          let g:LanguageClient_diagnosticsDisplay = {
+                                \ 1: {
+                                \     "name": "Error",
+                                \     "texthl": " ",
+                                \     "virtualTexthl": "GitGutterAddInvisible",
+                                \ },
+                                \ 2: {
+                                \     "name": "Warning",
+                                \     "texthl": " ",
+                                \     "virtualTexthl": "GitGutterAddInvisible",
+                                \ },
+                                \ 3: {
+                                \     "name": "Information",
+                                \     "texthl": " ",
+                                \     "virtualTexthl": "GitGutterAddInvisible",
+                                \ },
+                                \ 4: {
+                                \     "name": "Hint",
+                                \     "texthl": " ",
+                                \     "virtualTexthl": "GitGutterAddInvisible",
+                                \ },
+                                \}
+                        endfunction
+
+                        function! ShowDiagnostics()
+                          let g:LanguageClient_diagnosticsDisplay = {
+                                \ 1: {
+                                \     "name": "Error",
+                                \     "texthl": " ",
+                                \     "virtualTexthl": "ErrorMsg",
+                                \ },
+                                \ 2: {
+                                \     "name": "Warning",
+                                \     "texthl": " ",
+                                \     "virtualTexthl": "Question",
+                                \ },
+                                \ 3: {
+                                \     "name": "Information",
+                                \     "texthl": " ",
+                                \     "virtualTexthl": "WarningMsg",
+                                \ },
+                                \ 4: {
+                                \     "name": "Hint",
+                                \     "texthl": " ",
+                                \     "virtualTexthl": "Title",
+                                \ },
+                                \}
+                        endfunction
+
+                        function! ToggleDiagnostics()
+                          if g:DiagnosticsHidden
+                            call ShowDiagnostics()
+                            let g:DiagnosticsHidden = 0
+                          else
+                            call HideDiagnostics()
+                            let g:DiagnosticsHidden = 1
+                          endif
+                          LanguageClientStop
+                          sleep 1
+                          LanguageClientStart
+                          set noshowmode
+                        endfunction
+
+                        let g:DiagnosticsHidden = 0
+                        call ShowDiagnostics()
+
+                        nnoremap <leader>ll :call ToggleDiagnostics()<CR>
+                        nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+                        nnoremap <leader>ld :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
+                        nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+                        let g:which_key_map.l = { 'name' : 'lang' }
+                        let g:which_key_map.l.h = 'hover'
+                        let g:which_key_map.l.d = 'def'
+                        let g:which_key_map.l.m = 'menu'
+                        let g:which_key_map.l.l = 'toggle'
+                        let g:which_key_map.l.g = 'generate' " Comes from fzf
 
                 " vimwiki
-                let g:which_key_map.w = { 'name' : 'wiki',
-                    \ 'i' : 'diary',
-                    \ 's' : 'select',
-                    \ 't' : 'tab',
-                    \ 'w' : 'wiki',
-                    \ 'd' : 'delete',
-                    \ 'h' : 'html',
-                    \ 'hh': 'browse',
-                    \ 'r' : 'rename',
-                    \ ',' : {
-                        \ 'name' : 'diary',
-                        \ 'i' : 'generate',
-                        \ 'm' : 'tomorrow',
-                        \ 't' : 'tab',
-                        \ 'w' : 'make',
-                        \ 'y' : 'yesterday',
-                        \ },
-                    \ }
+                        nnoremap <leader>wa :VimwikiAll2HTML<CR>
+                        let g:which_key_map.w = { 'name' : 'wiki',
+                            \ 'i' : 'diary',
+                            \ 's' : 'select',
+                            \ 't' : 'tab',
+                            \ 'w' : 'wiki',
+                            \ 'd' : 'delete',
+                            \ 'h' : 'html',
+                            \ 'n' : 'goto',
+                            \ 'a' : 'all',
+                            \ 'hh': 'browse',
+                            \ 'r' : 'rename',
+                            \ ',' : {
+                                \ 'name' : 'diary',
+                                \ 'i' : 'generate',
+                                \ 'm' : 'tomorrow',
+                                \ 't' : 'tab',
+                                \ 'w' : 'make',
+                                \ 'y' : 'yesterday',
+                                \ },
+                            \ }
 
                 " float preview settings
-                let g:float_preview#docked=0
+                        let g:float_preview#docked=0
 
                 " better syntax settings
-                let g:python_highlight_all = 1
+                        let g:python_highlight_all = 1
 
                 " vimtmux
-                nnoremap <leader>to :VtrOpenRunner<CR>
-                nnoremap <leader>tl :VtrSendLinesToRunner<CR>
-                nnoremap <leader>tr :VtrClearRunner<CR>
-                let g:which_key_map.t = { 'name' : 'tmux' }
-                let g:which_key_map.t.o = 'open'
-                let g:which_key_map.t.l = 'send line'
-                let g:which_key_map.t.r = 'clear'
+                        nnoremap <leader>to :VtrOpenRunner<CR>
+                        nnoremap <leader>tl :VtrSendLinesToRunner<CR>
+                        vnoremap <leader>tl :VtrSendLinesToRunner<CR>
+                        nnoremap <leader>tr :VtrClearRunner<CR>
+                        let g:which_key_map.t = { 'name' : 'tmux' }
+                        let g:which_key_map.t.o = 'open'
+                        let g:which_key_map.t.l = 'send line'
+                        let g:which_key_map.t.r = 'clear'
 
                 " which key
-                nnoremap <silent> <leader> :WhichKey ','<CR>
-                let g:which_key_use_floating_win = 0
-                autocmd! FileType which_key
-                autocmd  FileType which_key set laststatus=0 noshowmode noruler
-                  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+                        let g:which_key_use_floating_win = 0
+                        nnoremap <silent> <leader> :WhichKey ','<CR>
+                        autocmd! FileType which_key
+                        autocmd  FileType which_key set laststatus=0 noshowmode noruler
+                          \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
                 " tagbar
-                nnoremap <leader>lt :TagbarToggle<CR>
-                let g:which_key_map.l.t = 'tagbar'
+                        nnoremap <leader>lt :TagbarToggle<CR>
+                        let g:which_key_map.l.t = 'tagbar'
 
                 " vifm
-                nnoremap <leader>n :leftabove vertical 30Vifm<CR>
-                let g:which_key_map.n = 'vifm'
-                let g:vifm_replace_netrw = 1
-                let g:vifm_embed_split = 1
-                let g:loaded_netrw       = 1
-                let g:loaded_netrwPlugin = 1
-                autocmd BufWinEnter,WinEnter term://* startinsert
-                autocmd BufLeave term://* stopinsert
+                        nnoremap <leader>n :leftabove vertical 30Vifm<CR>
+                        let g:which_key_map.n = 'vifm'
+                        let g:vifm_replace_netrw = 1
+                        let g:vifm_embed_split = 1
+                        let g:loaded_netrw       = 1
+                        let g:loaded_netrwPlugin = 1
+                        autocmd BufWinEnter,WinEnter term://* startinsert
+                        autocmd BufLeave term://* stopinsert
+

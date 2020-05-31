@@ -26,7 +26,7 @@ separator       = %{F#4b5263}|%{F-}
 background      = ${colors.background}
 foreground      = ${colors.foreground}
 font-0          = FiraCode:size=14;3
-font-1          = FiraCode:size=18;4
+font-1          = FiraCode:size=18;5
 cursor-scroll   = ns-resize
 enable-ipc      = true
 wm-name         = bspwm
@@ -50,6 +50,15 @@ time       = %R
 time-alt   = %d.%m.%y
 label      = %time%
 label-font = 2
+
+[module/time_ipc]
+type        = custom/ipc
+interval    = 1
+hook-0      = date +%R
+hook-1      = date +%d.%m.%y
+initial     = 1
+format      = <output>
+format-font = 2
 
 [module/work]
 type                      = internal/xworkspaces
