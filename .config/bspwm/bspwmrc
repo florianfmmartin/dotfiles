@@ -1,7 +1,8 @@
 #! /bin/sh
 
 sxhkd &
-nitrogen --set-zoom-fill ~/Images/opensourceonedark.png
+# nitrogen --set-zoom-fill ~/Images/opensourceonedark.png &
+nitrogen --restore &
 polybar -r main &
 ~/script/xmodmap.sh &
 

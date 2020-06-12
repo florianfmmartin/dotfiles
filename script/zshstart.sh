@@ -11,6 +11,6 @@ fi
 if [ -z "$INPUT" ]
 then
 else
-        { tmux attach -t $INPUT || tmuxp load $INPUT || exec tmux new-session -t $INPUT;}
+        { tmux attach -t $INPUT || tmuxp load $INPUT 2>/dev/null || exec tmux new-session -t $INPUT;}
 fi
 

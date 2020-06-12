@@ -64,12 +64,21 @@ alias uu='pamac update -a'
 alias rr='source ranger'
 alias fm='vicd'
 alias fim='nvim $(fzf)'
+alias zfm='vicd $(fzf)'
+alias zcd='cd $(fzf)'
 alias wiki='nvim ~/vimwiki/index.wiki'
-
-alias cp="cp -i"                                                # Confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
+alias cp="cp -i"
+alias df='df -h'
+alias free='free -m'
 alias gitu='git add . && git commit && git push'
+# alias for git bare dofiles
+alias omd='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias vim='TERM=xterm-256color nvim'
+alias nvim='TERM=xterm-256color nvim'
+alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/init.vim'
+alias scrot='cd && cd Images/ && scrot && cd'
+# irssi
+alias irc="TERM=tmux irssi"
 
 # Theming section  
 autoload -U compinit colors zcalc
@@ -217,12 +226,6 @@ source ~/git/agnoster-zsh-theme/agnoster.zsh-theme
 
 export FZF_DEFAULT_COMMAND='find .'
 
-# alias for git bare dofiles
-alias omd='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
-alias vim='TERM=xterm-256color nvim'
-alias nvim='TERM=xterm-256color nvim'
-alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/init.vim'
-alias scrot='cd && cd Images/ && scrot && cd'
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -266,8 +269,6 @@ vicd()
         cd "$dst"
 }
 
-# irssi
-alias irc="TERM=tmux irssi"
 
 # tmux ?
 [ -z "$VIRTUAL_ENV" ] && ~/script/zshstart.sh

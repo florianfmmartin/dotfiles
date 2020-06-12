@@ -1,0 +1,27 @@
+session_name: algo
+start_directory: ~/Cours/E20/IFT-2008/tp1/CodeTP1/
+windows:
+        - window_name: rgle
+          panes:
+                  - shell_command:
+                          - sleep 1
+                          - nvim Regle.h Regle.cpp
+        - window_name: sytm
+          panes:
+                  - shell_command:
+                          - sleep 1
+                          - nvim SystemeExpert.h SystemeExpert.cpp ListeCirculaire.h ListeCirculaire.hpp
+        - window_name: anur
+          panes:
+                  - shell_command:
+                          - sleep 1
+                          - cd ~/git/giftps/source/
+                          - nvim Annuaire.h Annuaire.cpp Personne.cpp
+        - window_name: main
+          panes:
+                  - shell_command:
+                          - sleep 1
+                          - nvim Principal.cpp Animaux.txt
+                  - shell_command:
+                          - cd build
+

@@ -34,9 +34,6 @@
         " startify plugin
         Plug 'mhinz/vim-startify'
 
-        " goyo plugin
-        Plug 'junegunn/goyo.vim'
-
         " undo tree plugin
         Plug 'mbbill/undotree'
 
@@ -68,14 +65,14 @@
         " which key again...
         Plug 'liuchengxu/vim-which-key'
 
-        " firenvim
-        Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
         " tagbar
         Plug 'majutsushi/tagbar'
 
         " vifm.vim
         Plug 'vifm/vifm.vim'
+
+        " ghosttext
+        Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 
         call plug#end()
 
@@ -99,21 +96,31 @@
                 " tab and indent
                         set tabstop=4
                         set softtabstop=4
+                        set shiftwidth=4
                         set expandtab
                         set autoindent
                         set nosmartindent
                         set nosmarttab
                         autocmd Filetype cpp setlocal noexpandtab
 
-                        function LeaderReTab(len)
+                        function LeaderReTab(len, style)
+                                if a:style
+                                    set noexpandtab
+                                else
+                                    set expandtab
+                                endif
                                 let &l:tabstop = a:len
                                 let &l:softtabstop = a:len
+                                let &l:shiftwidth = a:len
                                 %retab!
                         endfunction
                         nnoremap <leader>rt :call LeaderReTab(
 
+                        nnoremap <leader>rl 039lf<Space>r<CR>
+
                         let g:which_key_map.r = { 'name' : 'reload' }
                         let g:which_key_map.r.t = 'tab'
+                        let g:which_key_map.r.l = 'limit'
 
                 " numbers column
                         set number relativenumber
@@ -133,9 +140,8 @@
                         set fillchars=vert:\ 
                         call matchadd('SpellBad', '\%81v')
                         hi! VertSplit ctermfg=145 guifg=#ABB2BF
-                        let g:vimwiki_conceallevel=0
 
-                        nnoremap <leader>rc :w<CR>:source %<CR>
+                        nnoremap <leader>rc :w<CR>:source ~/.config/nvim/init.vim<CR>
                         let g:which_key_map.r.c = 'config'
 
                 " buffers
@@ -177,10 +183,10 @@
                         nnoremap <C-H> <C-W><C-H>
 
                 " autocompletion setup
-                        set completeopt=menuone,preview,
+                        set completeopt=menuone
                         set shortmess+=c
                         inoremap ( ()<Esc>i
-                        inoremap { {}<Esc>i
+                        inoremap { {<CR>}<Esc>O
                         inoremap [ []<Esc>i
                         inoremap " ""<Esc>i
 
@@ -191,15 +197,26 @@
                         xnoremap > ><CR>gv-gv
 
                 " naviguation
-                        noremap <Up> <Nop>
-                        noremap <Down> <Nop>
-                        noremap <Left> <Nop>
-                        noremap <Right> <Nop>
-                        noremap <leader><leader> <Esc>la
+                        nnoremap <Up> <Nop>
+                        nnoremap <Down> <Nop>
+                        nnoremap <Left> <Nop>
+                        nnoremap <Right> <Nop>
+                        inoremap <Up> <Nop>
+                        inoremap <Down> <Nop>
+                        inoremap <Left> <Nop>
+                        inoremap <Right> <Nop>
+                        nnoremap <leader><leader> <Esc>la
+                        inoremap <leader><leader> <Esc>la
                         nnoremap ; :
                         nnoremap : ;
-                        noremap - $
+                        nnoremap - $
+                        vnoremap - $
+                        xnoremap - $
                         inoremap <C-Space> <C-X><C-O>
+
+                " terminal
+                        nnoremap <leader>g :terminal<CR>i
+                        let g:which_key_map.g = 'term'
 
         "---------"
         " plugins "
@@ -253,7 +270,6 @@
                         let g:which_key_map._ = {
                             \ 'name' : 'which_key_ignore',
                             \ }
-
                 " gutter
                         let g:which_key_map.h = {
                             \ 'name' : 'gutter',
@@ -276,26 +292,6 @@
                         let g:startify_lists = [
                           \ { 'type': 'dir', 'header': ['   Recently Used'] },
                           \ ]
-
-                " goyo settings
-                        let g:goyo_height=45
-
-                        function! s:goyo_enter()
-                                set showmode
-                                set nocursorline
-                        endfunction
-
-                        function! s:goyo_leave()
-                                set noshowmode
-                                set cursorline
-                        endfunction
-
-                        autocmd! User GoyoEnter nested call <SID>goyo_enter()
-                        autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-                        nnoremap <leader>gy :Goyo<CR>
-                        let g:which_key_map.g = { 'name' : 'goyo' }
-                        let g:which_key_map.g.y = 'goyo'
 
                 " undo tree settings
                         nnoremap <leader>ut :UndotreeToggle<CR>
