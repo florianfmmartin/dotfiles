@@ -4,8 +4,6 @@
         call plug#begin('~/.vim/plugged')
 
         " theme plugins
-        Plug 'morhetz/gruvbox'
-        Plug 'arcticicestudio/nord-vim'
         Plug 'joshdick/onedark.vim'
 
         " airline plugin
@@ -31,12 +29,6 @@
         " git gutter plugin
         Plug 'airblade/vim-gitgutter'
 
-        " startify plugin
-        Plug 'mhinz/vim-startify'
-
-        " undo tree plugin
-        Plug 'mbbill/undotree'
-
         " lsp client plugin
         Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
@@ -45,9 +37,6 @@
 
         " vim wiki plugin
         Plug 'vimwiki/vimwiki'
-
-        " float preview
-        Plug 'ncm2/float-preview.nvim'
 
         " better syntax
         Plug 'bfrg/vim-cpp-modern'
@@ -58,9 +47,6 @@
 
         " vim-tmux-runner
         Plug 'christoomey/vim-tmux-runner'
-
-        " vim be good
-        Plug 'ThePrimeagen/vim-be-good'
 
         " which key again...
         Plug 'liuchengxu/vim-which-key'
@@ -214,10 +200,6 @@
                         xnoremap - $
                         inoremap <C-Space> <C-X><C-O>
 
-                " terminal
-                        nnoremap <leader>g :terminal<CR>i
-                        let g:which_key_map.g = 'term'
-
         "---------"
         " plugins "
         "---------"
@@ -277,26 +259,6 @@
                             \ 's' : 'stage',
                             \ 'u' : 'undo',
                             \ }
-
-                " startify settings
-                        let g:startify_files_number = 41
-                        let g:startify_custom_header = [
-                        \ '                        _            ',
-                        \ '  _ __   ___  _____   _(_)_ __ ___   ',
-                        \ ' | ''_ \ / _ \/ _ \ \ / / | ''_ ` _ \  ',
-                        \ ' | | | |  __/ (_) \ V /| | | | | | | ',
-                        \ ' |_| |_|\___|\___/ \_/ |_|_| |_| |_| ',
-                        \ '',
-                        \ '',
-                        \ ]
-                        let g:startify_lists = [
-                          \ { 'type': 'dir', 'header': ['   Recently Used'] },
-                          \ ]
-
-                " undo tree settings
-                        nnoremap <leader>ut :UndotreeToggle<CR>
-                        let g:which_key_map.u = { 'name' : 'undo' }
-                        let g:which_key_map.u.t = 'tree'
 
                 " lsp settings
                         set completefunc=LanguageClient#complete
@@ -411,9 +373,6 @@
                                 \ 'y' : 'yesterday',
                                 \ },
                             \ }
-
-                " float preview settings
-                        let g:float_preview#docked=0
 
                 " better syntax settings
                         let g:python_highlight_all = 1

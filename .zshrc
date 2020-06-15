@@ -63,7 +63,7 @@ alias rm='rm -i'
 alias uu='pamac update -a'
 alias rr='source ranger'
 alias fm='vicd'
-alias fim='nvim $(fzf)'
+alias zvim='nvim $(fzf)'
 alias zfm='vicd $(fzf)'
 alias zcd='cd $(fzf)'
 alias wiki='nvim ~/vimwiki/index.wiki'
@@ -275,4 +275,7 @@ vicd()
 
 # add cargo bin to path
 export "PATH=/home/florian/.cargo/bin:$PATH"
+
+# add stack bin to path
+export "PATH=/home/florian/.stack/programs/x86_64-linux/ghc-tinfo6-8.8.3/bin:$PATH"
 
