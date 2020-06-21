@@ -44,6 +44,7 @@
         Plug 'ocaml/vim-ocaml'
         Plug 'vim-python/python-syntax'
         Plug 'rust-lang/rust.vim'
+        Plug 'pangloss/vim-javascript'
 
         " vim-tmux-runner
         Plug 'christoomey/vim-tmux-runner'
@@ -268,87 +269,23 @@
                             \ 'python': ['/home/florian/.local/bin/pyls'],
                             \ 'ocaml' : ['/home/florian/.opam/default/bin/ocamllsp'],
                             \ 'cpp'   : ['/usr/bin/ccls'],
-                            \ 'rust'   : ['rust-analyzer'],
+                            \ 'rust'  : ['rust-analyzer'],
+                            \ 'javascript' : ['node lib/language-server'],
                             \ }
                         let g:LanguageClient_useFloatingHover = 1
                         let g:LanguageClient_virtualTextPrefix='-- '
 
-                        function! HideDiagnostics()
-                          let g:LanguageClient_diagnosticsDisplay = {
-                                \ 1: {
-                                \     "name": "Error",
-                                \     "texthl": " ",
-                                \     "virtualTexthl": "GitGutterAddInvisible",
-                                \ },
-                                \ 2: {
-                                \     "name": "Warning",
-                                \     "texthl": " ",
-                                \     "virtualTexthl": "GitGutterAddInvisible",
-                                \ },
-                                \ 3: {
-                                \     "name": "Information",
-                                \     "texthl": " ",
-                                \     "virtualTexthl": "GitGutterAddInvisible",
-                                \ },
-                                \ 4: {
-                                \     "name": "Hint",
-                                \     "texthl": " ",
-                                \     "virtualTexthl": "GitGutterAddInvisible",
-                                \ },
-                                \}
-                        endfunction
-
-                        function! ShowDiagnostics()
-                          let g:LanguageClient_diagnosticsDisplay = {
-                                \ 1: {
-                                \     "name": "Error",
-                                \     "texthl": " ",
-                                \     "virtualTexthl": "ErrorMsg",
-                                \ },
-                                \ 2: {
-                                \     "name": "Warning",
-                                \     "texthl": " ",
-                                \     "virtualTexthl": "Question",
-                                \ },
-                                \ 3: {
-                                \     "name": "Information",
-                                \     "texthl": " ",
-                                \     "virtualTexthl": "WarningMsg",
-                                \ },
-                                \ 4: {
-                                \     "name": "Hint",
-                                \     "texthl": " ",
-                                \     "virtualTexthl": "Title",
-                                \ },
-                                \}
-                        endfunction
-
-                        function! ToggleDiagnostics()
-                          if g:DiagnosticsHidden
-                            call ShowDiagnostics()
-                            let g:DiagnosticsHidden = 0
-                          else
-                            call HideDiagnostics()
-                            let g:DiagnosticsHidden = 1
-                          endif
-                          LanguageClientStop
-                          sleep 1
-                          LanguageClientStart
-                          set noshowmode
-                        endfunction
-
-                        let g:DiagnosticsHidden = 0
-                        call ShowDiagnostics()
-
-                        nnoremap <leader>ll :call ToggleDiagnostics()<CR>
+                        nnoremap <leader>lf :LanguageClientStop<CR>
+                        nnoremap <leader>ls :LanguageClientStart<CR>
                         nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-                        nnoremap <leader>ld :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
+                        nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
                         nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
                         let g:which_key_map.l = { 'name' : 'lang' }
                         let g:which_key_map.l.h = 'hover'
                         let g:which_key_map.l.d = 'def'
                         let g:which_key_map.l.m = 'menu'
-                        let g:which_key_map.l.l = 'toggle'
+                        let g:which_key_map.l.f = 'finish'
+                        let g:which_key_map.l.s = 'start'
                         let g:which_key_map.l.g = 'generate' " Comes from fzf
 
                 " vimwiki
@@ -407,4 +344,9 @@
                         let g:loaded_netrwPlugin = 1
                         autocmd BufWinEnter,WinEnter term://* startinsert
                         autocmd BufLeave term://* stopinsert
+
+        " empty?
+        if empty(argv())
+            au VimEnter * FZF!
+        endif
 

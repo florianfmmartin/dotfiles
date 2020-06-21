@@ -63,9 +63,7 @@ alias rm='rm -i'
 alias uu='pamac update -a'
 alias rr='source ranger'
 alias fm='vicd'
-alias zvim='nvim $(fzf)'
-alias zfm='vicd $(fzf)'
-alias zcd='cd $(fzf)'
+alias zd='cd $(tree -dirf | fzf)'
 alias wiki='nvim ~/vimwiki/index.wiki'
 alias cp="cp -i"
 alias df='df -h'
@@ -278,4 +276,7 @@ export "PATH=/home/florian/.cargo/bin:$PATH"
 
 # add stack bin to path
 export "PATH=/home/florian/.stack/programs/x86_64-linux/ghc-tinfo6-8.8.3/bin:$PATH"
+
+# add dat to path
+export "PATH=/home/florian/.dat/releases/dat-14.0.2-linux-x64:$PATH"
 

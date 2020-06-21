@@ -2,13 +2,12 @@
 
 sxhkd &
 # nitrogen --set-zoom-fill ~/Images/opensourceonedark.png &
-nitrogen --restore &
 polybar -r main &
+nitrogen --restore &
 ~/script/xmodmap.sh &
 
 bspc monitor -d I II III IV
 
-# overlap
 bspc config border_width          0
 bspc config window_gap            0
 
