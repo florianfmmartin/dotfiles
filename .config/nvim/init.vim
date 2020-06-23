@@ -35,16 +35,12 @@
             \ 'do': 'bash install.sh',
             \ }
 
-        " vim wiki plugin
-        Plug 'vimwiki/vimwiki'
-
         " better syntax
         Plug 'bfrg/vim-cpp-modern'
         Plug 'pangloss/vim-javascript'
         Plug 'ocaml/vim-ocaml'
         Plug 'vim-python/python-syntax'
         Plug 'rust-lang/rust.vim'
-        Plug 'pangloss/vim-javascript'
 
         " vim-tmux-runner
         Plug 'christoomey/vim-tmux-runner'
@@ -52,14 +48,12 @@
         " which key again...
         Plug 'liuchengxu/vim-which-key'
 
-        " tagbar
-        Plug 'majutsushi/tagbar'
-
-        " vifm.vim
-        Plug 'vifm/vifm.vim'
-
         " ghosttext
         Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+
+        " ranger
+        Plug 'rbgrouleff/bclose.vim'
+        Plug 'francoiscabrol/ranger.vim'
 
         call plug#end()
 
@@ -173,7 +167,8 @@
                         set completeopt=menuone
                         set shortmess+=c
                         inoremap ( ()<Esc>i
-                        inoremap { {<CR>}<Esc>O
+                        inoremap { {}<Esc>i
+                        autocmd Filetype cpp inoremap { {<CR>}<Esc>O
                         inoremap [ []<Esc>i
                         inoremap " ""<Esc>i
 
@@ -215,6 +210,7 @@
                         let g:airline_section_warning=''
                         let g:airline#extensions#tabline#enabled = 1
                         let g:airline#extensions#tabline#fnamemod = ':t'
+                        let g:airline#extensions#tabline#buffers_label = ''
                         let g:airline_section_c = '%t'
                         let g:airline_section_z = '%l/%L : %02c'
                         set noshowmode
@@ -288,29 +284,6 @@
                         let g:which_key_map.l.s = 'start'
                         let g:which_key_map.l.g = 'generate' " Comes from fzf
 
-                " vimwiki
-                        nnoremap <leader>wa :VimwikiAll2HTML<CR>
-                        let g:which_key_map.w = { 'name' : 'wiki',
-                            \ 'i' : 'diary',
-                            \ 's' : 'select',
-                            \ 't' : 'tab',
-                            \ 'w' : 'wiki',
-                            \ 'd' : 'delete',
-                            \ 'h' : 'html',
-                            \ 'n' : 'goto',
-                            \ 'a' : 'all',
-                            \ 'hh': 'browse',
-                            \ 'r' : 'rename',
-                            \ ',' : {
-                                \ 'name' : 'diary',
-                                \ 'i' : 'generate',
-                                \ 'm' : 'tomorrow',
-                                \ 't' : 'tab',
-                                \ 'w' : 'make',
-                                \ 'y' : 'yesterday',
-                                \ },
-                            \ }
-
                 " better syntax settings
                         let g:python_highlight_all = 1
 
@@ -329,21 +302,12 @@
                         nnoremap <silent> <leader> :WhichKey ','<CR>
                         autocmd! FileType which_key
                         autocmd  FileType which_key set laststatus=0 noshowmode noruler
-                          \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-                " tagbar
-                        nnoremap <leader>lt :TagbarToggle<CR>
-                        let g:which_key_map.l.t = 'tagbar'
-
-                " vifm
-                        nnoremap <leader>n :leftabove vertical 30Vifm<CR>
-                        let g:which_key_map.n = 'vifm'
-                        let g:vifm_replace_netrw = 1
-                        let g:vifm_embed_split = 1
-                        let g:loaded_netrw       = 1
-                        let g:loaded_netrwPlugin = 1
-                        autocmd BufWinEnter,WinEnter term://* startinsert
-                        autocmd BufLeave term://* stopinsert
+                          \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+                " ranger
+                        let g:ranger_map_keys = 0
+                        let g:ranger_replace_netrw = 1
+                        nnoremap <leader>n :Ranger<CR>
+                        let g:which_key_map.n = 'ranger'
 
         " empty?
         if empty(argv())

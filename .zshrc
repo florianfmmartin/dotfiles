@@ -62,9 +62,7 @@ alias ranger='source ranger'
 alias rm='rm -i'
 alias uu='pamac update -a'
 alias rr='source ranger'
-alias fm='vicd'
 alias zd='cd $(tree -dirf | fzf)'
-alias wiki='nvim ~/vimwiki/index.wiki'
 alias cp="cp -i"
 alias df='df -h'
 alias free='free -m'
@@ -77,6 +75,9 @@ alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/init.vim'
 alias scrot='cd && cd Images/ && scrot && cd'
 # irssi
 alias irc="TERM=tmux irssi"
+# others
+alias epdf="epdfview"
+alias unzip="engrampa"
 
 # Theming section  
 autoload -U compinit colors zcalc
@@ -255,18 +256,6 @@ eval $(opam env)
 
 # add script to path
 export "PATH=/home/florian/script:$PATH"
-
-# add vifm quit to cd
-vicd()
-{
-        local dst="$(command vifm --choose-dir - "$@")"
-        if [ -z "$dst" ]; then
-                echo 'cd cancel'
-                return 1
-        fi
-        cd "$dst"
-}
-
 
 # tmux ?
 [ -z "$VIRTUAL_ENV" ] && ~/script/zshstart.sh
