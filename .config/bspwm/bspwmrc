@@ -1,9 +1,8 @@
 #! /bin/sh
 
 sxhkd &
-# nitrogen --set-zoom-fill ~/Images/opensourceonedark.png &
+nitrogen --set-auto /home/florian/Images/2020-07-02-083042_156x223_scrot.png &
 polybar -r main &
-nitrogen --restore &
 ~/script/xmodmap.sh &
 
 bspc monitor -d I II III IV

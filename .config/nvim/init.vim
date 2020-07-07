@@ -83,6 +83,7 @@
                         set nosmartindent
                         set nosmarttab
                         autocmd Filetype cpp setlocal noexpandtab
+                        autocmd Filetype ocaml setlocal noexpandtab tabstop=2 softtabstop=2 shiftwidth=2
 
                         function LeaderReTab(len, style)
                                 if a:style
@@ -195,6 +196,8 @@
                         vnoremap - $
                         xnoremap - $
                         inoremap <C-Space> <C-X><C-O>
+                        nnoremap <Space> w
+                        nnoremap <BackSpace> b
 
         "---------"
         " plugins "
@@ -263,7 +266,7 @@
                         " let g:LanguageClient_changeThrottle = 2
                         let g:LanguageClient_serverCommands = {
                             \ 'python': ['/home/florian/.local/bin/pyls'],
-                            \ 'ocaml' : ['/home/florian/.opam/default/bin/ocamllsp'],
+                            \ 'ocaml' : ['ocamllsp'],
                             \ 'cpp'   : ['/usr/bin/ccls'],
                             \ 'rust'  : ['rust-analyzer'],
                             \ 'javascript' : ['node lib/language-server'],

@@ -51,15 +51,6 @@ time-alt   = %d.%m.%y
 label      = %time%
 label-font = 2
 
-[module/time_ipc]
-type        = custom/ipc
-interval    = 1
-hook-0      = date +%R
-hook-1      = date +%d.%m.%y
-initial     = 1
-format      = <output>
-format-font = 2
-
 [module/work]
 type                      = internal/xworkspaces
 label-active-padding      = 2
@@ -89,8 +80,8 @@ click-right   = exec pavucontrol &
 [module/net]
 type               = internal/network
 interface          = wlp3s0
-label-connected    = W:%{A1:lxterminal -e nmtui:} ON%{A}
-label-disconnected = W:%{F#e06c75}%{A1:lxterminal -e nmtui:}OFF%{A}%{F-}
+label-connected    = W: ON%{A}
+label-disconnected = W:%{F#e06c75}OFF%{A}%{F-}
 
 [module/pacman]
 type     = custom/script

@@ -67,17 +67,15 @@ alias cp="cp -i"
 alias df='df -h'
 alias free='free -m'
 alias gitu='git add . && git commit && git push'
-# alias for git bare dofiles
 alias omd='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias vim='TERM=xterm-256color nvim'
 alias nvim='TERM=xterm-256color nvim'
 alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/init.vim'
 alias scrot='cd && cd Images/ && scrot && cd'
-# irssi
 alias irc="TERM=tmux irssi"
-# others
 alias epdf="epdfview"
 alias unzip="engrampa"
+alias tmuxk="tmux kill-session -t"
 
 # Theming section  
 autoload -U compinit colors zcalc
