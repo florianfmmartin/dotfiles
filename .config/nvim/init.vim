@@ -134,7 +134,7 @@
 
                 " clipboard
                         set clipboard+=unnamedplus
-                        vnoremap t $hy
+                        vnoremap T $hy
 
                         nnoremap <leader>y yyp
                         let g:which_key_map.y = "yyp"
@@ -262,7 +262,7 @@
 
                 " lsp settings
                         set completefunc=LanguageClient#complete
-
+                        "
                         " let g:LanguageClient_changeThrottle = 2
                         let g:LanguageClient_serverCommands = {
                             \ 'python': ['/home/florian/.local/bin/pyls'],
