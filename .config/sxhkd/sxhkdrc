@@ -42,7 +42,7 @@ super + w
 super + f
 	pcmanfm
 
-# vifm
+# ranger
 alt + shift + Return
 	kitty -e ~/script/ranger.sh
 
@@ -61,6 +61,13 @@ XF86AudioMute
 # backlight
 XF86Audio{Prev,Next}
 	xbacklight {-dec,-inc} 5
+
+# rotate
+super + r
+	xrandr --output HDMI1 --rotate left
+
+super + shift + r
+	xrandr --output HDMI1 --rotate normal
 
 #
 # bspwm hotkeys

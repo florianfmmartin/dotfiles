@@ -1,7 +1,7 @@
 #! /bin/sh
 
 sxhkd &
-nitrogen --set-auto /home/florian/Images/2020-07-02-083042_156x223_scrot.png &
+nitrogen --restore &
 polybar -r main &
 ~/script/xmodmap.sh &
 
@@ -20,4 +20,6 @@ bspc config focused_border_color  "#abb2bf"
 bspc config normal_border_color   "#4b5263"
 
 bspc config focus_follows_pointer true
+
+bspc rule -a Zathura state=tiled
 

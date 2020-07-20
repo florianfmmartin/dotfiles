@@ -141,7 +141,6 @@
 
                 " searching
                         set ignorecase
-
                         nnoremap <leader><space> :noh<CR>
 
                 " extra line management
@@ -170,6 +169,7 @@
                         inoremap ( ()<Esc>i
                         inoremap { {}<Esc>i
                         autocmd Filetype cpp inoremap { {<CR>}<Esc>O
+                        autocmd Filetype tex inoremap $ $$<Esc>i
                         inoremap [ []<Esc>i
                         inoremap " ""<Esc>i
 
@@ -198,6 +198,10 @@
                         inoremap <C-Space> <C-X><C-O>
                         nnoremap <Space> w
                         nnoremap <BackSpace> b
+
+                " latex
+                        nnoremap <leader>xc :!pdflatex '%:p'<CR>
+                        nnoremap <leader>xv :!zathura '%:r'.pdf & disown <CR>
 
         "---------"
         " plugins "
@@ -262,17 +266,19 @@
 
                 " lsp settings
                         set completefunc=LanguageClient#complete
-                        "
+
                         " let g:LanguageClient_changeThrottle = 2
                         let g:LanguageClient_serverCommands = {
                             \ 'python': ['/home/florian/.local/bin/pyls'],
-                            \ 'ocaml' : ['ocamllsp'],
+                            \ 'ocaml' : ['~/.opam/4.10.0/bin/ocamllsp'],
                             \ 'cpp'   : ['/usr/bin/ccls'],
                             \ 'rust'  : ['rust-analyzer'],
                             \ 'javascript' : ['node lib/language-server'],
+                            \ 'tex' : ['texlab'],
                             \ }
                         let g:LanguageClient_useFloatingHover = 1
                         let g:LanguageClient_virtualTextPrefix='-- '
+                        let g:LanguageClient_selectionUI = "fzf"
 
                         nnoremap <leader>lf :LanguageClientStop<CR>
                         nnoremap <leader>ls :LanguageClientStart<CR>
