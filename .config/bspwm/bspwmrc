@@ -2,8 +2,9 @@
 
 sxhkd &
 nitrogen --set-zoom-fill ~/docs/opensourceonedark.png &
+xsetroot -cursor_name left_ptr &
 polybar -r main &
-~/script/xmodmap.sh &
+xmodmap.sh &
 
 bspc monitor -d I II III IV
 

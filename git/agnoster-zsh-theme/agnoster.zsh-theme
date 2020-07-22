@@ -26,7 +26,6 @@
 
 typeset -aHg AGNOSTER_PROMPT_SEGMENTS=(
     prompt_status
-    # prompt_context
     prompt_virtualenv
     prompt_dir
     prompt_git
@@ -115,11 +114,30 @@ prompt_git() {
 }
 
 # Dir: current working directory
-prompt_dir() {
-  # prompt_segment blue $PRIMARY_FG ' %~ '
-  prompt_segment blue $PRIMARY_FG ' '$(shrink_path -f -3)' '
-}
+# prompt_dir() {
+#   prompt_segment blue $PRIMARY_FG
+#   print -n " $(pwd | perl -pe '
+#   BEGIN {
+#     binmode STDIN,  ":encoding(UTF-8)";
+#     binmode STDOUT, ":encoding(UTF-8)";
+#   }; s|^$ENV{HOME}|~|g; s|/([^/.])[^/]*(?=/)|/$1|g; s|/\.([^/])[^/]*(?=/)|/.$1|g
+#   ') "
+# }
 
+prompt_dir() {
+  prompt_segment blue $PRIMARY_FG
+  print -n " $(local -a dirs=("${(s:/:)${(Q)${(D)PWD}}}")
+  for (( i=1; i<$#dirs; i++ )); do
+    local dir=$dirs[$i]
+    case $dir[1] in
+      '.' | '\') dirs[i]=$dir[1,4] ;;
+      '~') (( i != 1 )) && dirs[i]=$dir[1,3] ;;
+      *) dirs[i]=$dir[1,3] ;;
+    esac
+  done
+  echo -E ${(j:/:)dirs}) "
+}
+#
 # Status:
 # - was there an error
 # - am I root

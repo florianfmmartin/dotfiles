@@ -67,7 +67,6 @@ alias cp="cp -i"
 alias df='df -h'
 alias free='free -m'
 alias gitu='git add . && git commit && git push'
-alias omd='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias vim='TERM=xterm-256color nvim'
 alias nvim='TERM=xterm-256color nvim'
 alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/init.vim'
@@ -252,11 +251,13 @@ zinit snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
 # add script to path
 export "PATH=/home/florian/script:$PATH"
 
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370"
+
+# startx or tmux
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]];
 then
     startx
 else
-    # tmux ?
     [ -z "$VIRTUAL_ENV" ] && ~/script/zshstart.sh
 fi
 

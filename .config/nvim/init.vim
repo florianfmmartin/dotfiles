@@ -48,9 +48,6 @@
         " which key again...
         Plug 'liuchengxu/vim-which-key'
 
-        " ghosttext
-        Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
-
         " ranger
         Plug 'rbgrouleff/bclose.vim'
         Plug 'francoiscabrol/ranger.vim'
@@ -113,15 +110,15 @@
                         syntax on
                         set conceallevel=0
                         set lazyredraw
-                        set showmatch " show matching "([{
-                        set showcmd " shows the ungoing command
+                        set showmatch
+                        set showcmd
                         set scrolloff=8
                         set path+=**
                         set timeoutlen=300
                         set cursorline
                         set fillchars=vert:\ 
                         call matchadd('SpellBad', '\%81v')
-                        hi! VertSplit ctermfg=145 guifg=#ABB2BF
+                        " hi! VertSplit ctermfg=145 guifg=#ABB2BF
 
                         nnoremap <leader>rc :w<CR>:source ~/.config/nvim/init.vim<CR>
                         let g:which_key_map.r.c = 'config'
@@ -168,10 +165,10 @@
                         set shortmess+=c
                         inoremap ( ()<Esc>i
                         inoremap { {}<Esc>i
-                        autocmd Filetype cpp inoremap { {<CR>}<Esc>O
-                        autocmd Filetype tex inoremap $ $$<Esc>i
                         inoremap [ []<Esc>i
                         inoremap " ""<Esc>i
+                        autocmd Filetype cpp inoremap { {<CR>}<Esc>O
+                        autocmd Filetype tex inoremap $ $$<Esc>i
 
                 " move line visual
                         xnoremap K :move '<-2<CR>gv-gv
@@ -202,6 +199,11 @@
                 " latex
                         nnoremap <leader>xc :!pdflatex '%:p'<CR>
                         nnoremap <leader>xv :!zathura '%:r'.pdf & disown <CR>
+                        let g:which_key_map.x = {
+                            \ 'name' : 'latex',
+                            \ 'c' : 'compile',
+                            \ 'v' : 'view',
+                            \ }
 
         "---------"
         " plugins "
@@ -218,7 +220,7 @@
                         let g:airline#extensions#tabline#enabled = 1
                         let g:airline#extensions#tabline#fnamemod = ':t'
                         let g:airline#extensions#tabline#buffers_label = ''
-                        let g:airline_section_c = '%t'
+                        let g:airline_section_c = '%.'
                         let g:airline_section_z = '%l/%L : %02c'
                         set noshowmode
 
@@ -240,14 +242,11 @@
                           \ 'header':  ['fg', 'Comment'] }
                         nnoremap <leader>f :FZF ~<CR>
                         nnoremap <leader>z :FZF  <CR>
-                        nnoremap <leader>sb :Lines <CR>
+                        nnoremap <leader>s :Lines <CR>
                         nnoremap <leader>lg :Tags <CR>
                         let g:which_key_map.f = 'fzf'
                         let g:which_key_map.z = 'fzf cwd'
-                        let g:which_key_map.s = {
-                            \ 'name' : 'search',
-                            \ 'b' : 'buffers',
-                            \ }
+                        let g:which_key_map.s = 'search'
 
                 " tcomment settings
                         nnoremap <leader>c :TComment<CR>
@@ -308,6 +307,7 @@
 
                 " which key
                         let g:which_key_use_floating_win = 0
+                        let g:which_key_map.b = { 'name' : 'which_key_ignore' }
                         nnoremap <silent> <leader> :WhichKey ','<CR>
                         autocmd! FileType which_key
                         autocmd  FileType which_key set laststatus=0 noshowmode noruler

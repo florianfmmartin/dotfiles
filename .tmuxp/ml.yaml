@@ -1,9 +1,0 @@
-session_name: ml
-windows:
-    - window_name: ml
-      panes:
-          - shell_command:
-              - sleep 1
-              - vim ~/Cours/E20/IFT-3000/tp2/codetp2/TP2-E2020.ml ~/Cours/E20/IFT-3000/tp2/codetp2/utiles.ml ~/Cours/E20/IFT-3000/tp2/codetp2/je.ml ~/Cours/E20/IFT-3000/tp1/TP1-111265478/TP1-E2020.ml
-          - shell_command:
-              - cd ~/Cours/E20/IFT-3000/tp2/codetp2/
