@@ -24,7 +24,7 @@ alt + Escape
 
 # logout
 ctrl + shift + alt + l
-	lxde-logout
+	loginctl terminate-user florian
 
 # lock screen
 ctrl + alt + l
