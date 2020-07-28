@@ -260,15 +260,25 @@
                         let g:which_key_map._ = {
                             \ 'name' : 'which_key_ignore',
                             \ }
+                " signify
+                        let g:signify_sign_change="~"
+
+                        nnoremap <leader>gh :SignifyToggleHighlight<CR>
+                        nmap <leader>gj <plug>(signify-next-hunk)
+                        nmap <leader>gk <plug>(signify-prev-hunk)
+                        let g:which_key_map.g = { 'name' : 'git' }
+                        let g:which_key_map.g.h = 'highlight'
+                        let g:which_key_map.g.j = 'next'
+                        let g:which_key_map.g.k = 'prev'
 
                 " lsp settings
                         set completefunc=LanguageClient#complete
                         let g:LanguageClient_serverCommands = {
-                            \ 'python': ['/home/florian/.local/bin/pyls'],
-                            \ 'ocaml' : ['~/.opam/4.10.0/bin/ocamllsp'],
-                            \ 'cpp'   : ['/usr/bin/ccls'],
-                            \ 'rust'  : ['rust-analyzer'],
-                            \ 'javascript' : ['node lib/language-server'],
+                            \ 'python': [''],
+                            \ 'ocaml' : [''],
+                            \ 'cpp'   : [''],
+                            \ 'rust'  : [''],
+                            \ 'javascript' : [''],
                             \ 'tex' : ['texlab'],
                             \ }
                         let g:LanguageClient_useFloatingHover = 1
