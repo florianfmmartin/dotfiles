@@ -17,17 +17,14 @@
         " tcomment plugin
         Plug 'tomtom/tcomment_vim'
 
-        " fugitive plugin
-        Plug 'tpope/vim-fugitive'
-
         " surronds plugin
         Plug 'tpope/vim-surround'
 
         " css color plugin
         Plug 'ap/vim-css-color'
 
-        " git gutter plugin
-        Plug 'airblade/vim-gitgutter'
+        " vim signify
+        Plug 'mhinz/vim-signify'
 
         " lsp client plugin
         Plug 'autozimu/LanguageClient-neovim', {
@@ -101,7 +98,7 @@
                         nnoremap <leader>rt :call LeaderReTab(
                         nnoremap <leader>rl 039lf<Space>r<CR>
                         let g:which_key_map.r = { 'name' : 'reload' }
-                        let g:which_key_map.r.t = 'tab'
+                        let g:which_key_map.r.t = 'tabs'
                         let g:which_key_map.r.l = 'limit'
 
                 " numbers column
@@ -120,8 +117,9 @@
                         set timeoutlen=300
                         set cursorline
                         set fillchars=vert:\ 
-                        call matchadd('SpellBad', '\%81v')
+                        call matchadd('SpellBad', '\%>80v')
                         hi! VertSplit ctermfg=145 guifg=#ABB2BF
+                        hi! Comment cterm=bold gui=bold
 
                         nnoremap <leader>rc :w<CR>:source ~/.config/nvim/init.vim<CR>
                         let g:which_key_map.r.c = 'config'
@@ -145,7 +143,7 @@
 
                 " extra line management
                         nnoremap <leader>o O<Esc>
-                        let g:which_key_map.o = 'line'
+                        let g:which_key_map.o = 'extra line'
 
                 " fold
                         set foldlevelstart=10
@@ -222,7 +220,7 @@
                         let g:airline#extensions#tabline#enabled = 1
                         let g:airline#extensions#tabline#fnamemod = ':t'
                         let g:airline#extensions#tabline#buffers_label = ''
-                        let g:airline_section_c = '%.'
+                        let g:airline_section_c = '%f'
                         let g:airline_section_z = '%l/%L : %02c'
                         set noshowmode
 
@@ -248,11 +246,12 @@
                         nnoremap <leader>s :Lines <CR>
                         nnoremap <leader>w :Lines <C-R>=expand("<cword>")<CR><CR>
                         nnoremap <leader>lg :Tags <CR>
-                        let g:which_key_map.f = 'fzf'
+                        let g:which_key_map.f = 'fzf home'
                         let g:which_key_map.z = 'fzf cwd'
                         let g:which_key_map.s = 'search'
+                        let g:which_key_map.w = '* fzf '
                         let g:which_key_map.l = { 'name' : 'lang' }
-                        let g:which_key_map.l.g = 'generate'
+                        let g:which_key_map.l.g = 'tags gen'
 
                 " tcomment settings
                         nnoremap <leader>c :TComment<CR>
@@ -260,13 +259,6 @@
                         let g:which_key_map.c = 'comment'
                         let g:which_key_map._ = {
                             \ 'name' : 'which_key_ignore',
-                            \ }
-                " gutter
-                        let g:which_key_map.h = {
-                            \ 'name' : 'gutter',
-                            \ 'p' : 'preview',
-                            \ 's' : 'stage',
-                            \ 'u' : 'undo',
                             \ }
 
                 " lsp settings
