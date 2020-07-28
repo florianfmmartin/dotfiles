@@ -60,6 +60,10 @@
         "----------"
         " built in "
         "----------"
+                " theme settings
+                        set termguicolors
+                        colorscheme onedark
+
                 " leader
                         let mapleader = ","
 
@@ -79,9 +83,9 @@
                         set autoindent
                         set nosmartindent
                         set nosmarttab
-                        autocmd Filetype cpp setlocal noexpandtab
-                        autocmd Filetype ocaml setlocal noexpandtab tabstop=2 softtabstop=2 shiftwidth=2
-
+                        au Filetype cpp setlocal noexpandtab
+                        au Filetype ocaml setlocal noexpandtab tabstop=2
+                        au Filetype ocaml setlocal softtabstop=2 shiftwidth=2
                         function LeaderReTab(len, style)
                                 if a:style
                                     set noexpandtab
@@ -93,10 +97,9 @@
                                 let &l:shiftwidth = a:len
                                 %retab!
                         endfunction
+
                         nnoremap <leader>rt :call LeaderReTab(
-
                         nnoremap <leader>rl 039lf<Space>r<CR>
-
                         let g:which_key_map.r = { 'name' : 'reload' }
                         let g:which_key_map.r.t = 'tab'
                         let g:which_key_map.r.l = 'limit'
@@ -118,7 +121,7 @@
                         set cursorline
                         set fillchars=vert:\ 
                         call matchadd('SpellBad', '\%81v')
-                        " hi! VertSplit ctermfg=145 guifg=#ABB2BF
+                        hi! VertSplit ctermfg=145 guifg=#ABB2BF
 
                         nnoremap <leader>rc :w<CR>:source ~/.config/nvim/init.vim<CR>
                         let g:which_key_map.r.c = 'config'
@@ -205,13 +208,12 @@
                             \ 'v' : 'view',
                             \ }
 
+                " highlight yank
+                        au TextYankPost * silent! lua vim.highlight.on_yank() {timeout=800}
+
         "---------"
         " plugins "
         "---------"
-                " theme settings
-                        set termguicolors
-                        colorscheme onedark
-
                 " airline settings
                         let g:airline_powerline_fonts = 1
                         let g:airline_theme='lucius'
@@ -240,13 +242,17 @@
                           \ 'marker':  ['fg', 'Keyword'],
                           \ 'spinner': ['fg', 'Label'],
                           \ 'header':  ['fg', 'Comment'] }
+
                         nnoremap <leader>f :FZF ~<CR>
                         nnoremap <leader>z :FZF  <CR>
                         nnoremap <leader>s :Lines <CR>
+                        nnoremap <leader>w :Lines <C-R>=expand("<cword>")<CR><CR>
                         nnoremap <leader>lg :Tags <CR>
                         let g:which_key_map.f = 'fzf'
                         let g:which_key_map.z = 'fzf cwd'
                         let g:which_key_map.s = 'search'
+                        let g:which_key_map.l = { 'name' : 'lang' }
+                        let g:which_key_map.l.g = 'generate'
 
                 " tcomment settings
                         nnoremap <leader>c :TComment<CR>
@@ -265,8 +271,6 @@
 
                 " lsp settings
                         set completefunc=LanguageClient#complete
-
-                        " let g:LanguageClient_changeThrottle = 2
                         let g:LanguageClient_serverCommands = {
                             \ 'python': ['/home/florian/.local/bin/pyls'],
                             \ 'ocaml' : ['~/.opam/4.10.0/bin/ocamllsp'],
@@ -284,13 +288,11 @@
                         nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
                         nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
                         nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-                        let g:which_key_map.l = { 'name' : 'lang' }
                         let g:which_key_map.l.h = 'hover'
                         let g:which_key_map.l.d = 'def'
                         let g:which_key_map.l.m = 'menu'
                         let g:which_key_map.l.f = 'finish'
                         let g:which_key_map.l.s = 'start'
-                        let g:which_key_map.l.g = 'generate' " Comes from fzf
 
                 " better syntax settings
                         let g:python_highlight_all = 1
@@ -312,6 +314,7 @@
                         autocmd! FileType which_key
                         autocmd  FileType which_key set laststatus=0 noshowmode noruler
                           \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+
                 " ranger
                         let g:ranger_map_keys = 0
                         let g:ranger_replace_netrw = 1
