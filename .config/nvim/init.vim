@@ -27,17 +27,10 @@
         Plug 'mhinz/vim-signify'
 
         " lsp client plugin
-        Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ }
+        Plug 'neovim/nvim-lsp'
 
-        " better syntax
-        Plug 'bfrg/vim-cpp-modern'
-        Plug 'pangloss/vim-javascript'
-        Plug 'ocaml/vim-ocaml'
-        Plug 'vim-python/python-syntax'
-        Plug 'rust-lang/rust.vim'
+        " treesitter better syntax
+        Plug 'nvim-treesitter/nvim-treesitter'
 
         " vim-tmux-runner
         Plug 'christoomey/vim-tmux-runner'
@@ -48,6 +41,9 @@
         " ranger
         Plug 'rbgrouleff/bclose.vim'
         Plug 'francoiscabrol/ranger.vim'
+
+        " snips
+        Plug 'SirVer/ultisnips'
 
         call plug#end()
 
@@ -209,6 +205,17 @@
                 " highlight yank
                         au TextYankPost * silent! lua vim.highlight.on_yank() {timeout=800}
 
+                " spell checking
+                        inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+                        nnoremap <leader>es :setlocal nospell<CR>
+                        nnoremap <leader>ef :setlocal spell spelllang=fr<CR>
+                        nnoremap <leader>ee :setlocal spell spelllang=en<CR>
+                        let g:which_key_map.e = {
+                            \ 'name' : 'spell',
+                            \ 's' : 'stop',
+                            \ 'f' : 'français',
+                            \ 'e' : 'english',
+                            \ }
         "---------"
         " plugins "
         "---------"
@@ -225,6 +232,7 @@
                         set noshowmode
 
                 " fzf settings
+                        let g:fzf_preview_window = 'right:48%'
                         let g:fzf_colors =
                         \ { 'fg':      ['fg', 'Normal'],
                           \ 'bg':      ['bg', 'Normal'],
@@ -241,11 +249,11 @@
                           \ 'spinner': ['fg', 'Label'],
                           \ 'header':  ['fg', 'Comment'] }
 
-                        nnoremap <leader>f :FZF ~<CR>
-                        nnoremap <leader>z :FZF  <CR>
-                        nnoremap <leader>s :Lines <CR>
+                        nnoremap <leader>f :Files ~<CR>
+                        nnoremap <leader>z :Files<CR>
+                        nnoremap <leader>s :Lines<CR>
                         nnoremap <leader>w :Lines <C-R>=expand("<cword>")<CR><CR>
-                        nnoremap <leader>lg :Tags <CR>
+                        nnoremap <leader>lg :Tags<CR>
                         let g:which_key_map.f = 'fzf home'
                         let g:which_key_map.z = 'fzf cwd'
                         let g:which_key_map.s = 'search'
@@ -272,32 +280,22 @@
                         let g:which_key_map.g.k = 'prev'
 
                 " lsp settings
-                        set completefunc=LanguageClient#complete
-                        let g:LanguageClient_serverCommands = {
-                            \ 'python': [''],
-                            \ 'ocaml' : [''],
-                            \ 'cpp'   : [''],
-                            \ 'rust'  : [''],
-                            \ 'javascript' : [''],
-                            \ 'tex' : ['texlab'],
-                            \ }
-                        let g:LanguageClient_useFloatingHover = 1
-                        let g:LanguageClient_virtualTextPrefix='-- '
-                        let g:LanguageClient_selectionUI = "fzf"
+                        lua require'nvim_lsp'.ccls.setup{}
+                        lua require'nvim_lsp'.cmake.setup{}
+                        lua require'nvim_lsp'.html.setup{}
+                        lua require'nvim_lsp'.ocamllsp.setup{}
+                        lua require'nvim_lsp'.pyls.setup{}
+                        lua require'nvim_lsp'.rust_analyzer.setup{}
+                        lua require'nvim_lsp'.texlab.setup{}
+                        lua require'nvim_lsp'.vimls.setup{}
 
-                        nnoremap <leader>lf :LanguageClientStop<CR>
-                        nnoremap <leader>ls :LanguageClientStart<CR>
-                        nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-                        nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-                        nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-                        let g:which_key_map.l.h = 'hover'
-                        let g:which_key_map.l.d = 'def'
-                        let g:which_key_map.l.m = 'menu'
-                        let g:which_key_map.l.f = 'finish'
-                        let g:which_key_map.l.s = 'start'
-
-                " better syntax settings
-                        let g:python_highlight_all = 1
+                " treesitter better syntax
+                        lua require'nvim-treesitter.configs'.setup {
+                        \    highlight = {
+                        \        enable = true,
+                        \    },
+                        \    ensure_installed = "all"
+                        \}
 
                 " vimtmux
                         nnoremap <leader>to :VtrOpenRunner<CR>
@@ -323,8 +321,13 @@
                         nnoremap <leader>n :Ranger<CR>
                         let g:which_key_map.n = 'ranger'
 
+                " snips
+                        let g:UltiSnipsExpandTrigger="<tab>"
+                        let g:UltiSnipsJumpForwardTrigger="<tab>"
+                        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
         " empty?
         if empty(argv())
-            au VimEnter * FZF!
+            au VimEnter * Files!
         endif
 

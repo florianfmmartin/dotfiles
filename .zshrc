@@ -221,6 +221,7 @@ esac
 source ~/git/agnoster-zsh-theme/agnoster.zsh-theme
 
 export FZF_DEFAULT_COMMAND='find .'
+export BAT_THEME="TwoDark"
 
 
 ### Added by Zinit's installer
@@ -261,3 +262,5 @@ else
     [ -z "$VIRTUAL_ENV" ] && ~/script/zshstart.sh
 fi
 
+# opam configuration
+test -r /home/florian/.opam/opam-init/init.zsh && . /home/florian/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
