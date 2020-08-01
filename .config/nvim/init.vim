@@ -27,7 +27,10 @@
         Plug 'mhinz/vim-signify'
 
         " lsp client plugin
-        Plug 'neovim/nvim-lsp'
+        Plug 'autozimu/LanguageClient-neovim', {
+            \ 'branch': 'next',
+            \ 'do': 'bash install.sh',
+            \ }
 
         " treesitter better syntax
         Plug 'nvim-treesitter/nvim-treesitter'
@@ -280,14 +283,15 @@
                         let g:which_key_map.g.k = 'prev'
 
                 " lsp settings
-                        lua require'nvim_lsp'.ccls.setup{}
-                        lua require'nvim_lsp'.cmake.setup{}
-                        lua require'nvim_lsp'.html.setup{}
-                        lua require'nvim_lsp'.ocamllsp.setup{}
-                        lua require'nvim_lsp'.pyls.setup{}
-                        lua require'nvim_lsp'.rust_analyzer.setup{}
-                        lua require'nvim_lsp'.texlab.setup{}
-                        lua require'nvim_lsp'.vimls.setup{}
+                        let g:LanguageClient_serverCommands = {
+                        \ 'cmake': ['cmake-language-server'],
+                        \ 'cpp': ['ccls'],
+                        \ 'html': ['html-languageserver'],
+                        \ 'latex': ['texlab'],
+                        \ 'ocaml': ['ocamllsp'],
+                        \ 'python': ['pyls'],
+                        \ 'rust': ['rust-analyzer'],
+                        \ }
 
                 " treesitter better syntax
                         lua require'nvim-treesitter.configs'.setup {
