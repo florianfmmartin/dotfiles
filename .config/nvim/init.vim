@@ -35,6 +35,9 @@
         " treesitter better syntax
         Plug 'nvim-treesitter/nvim-treesitter'
 
+        " polyglot
+        Plug 'sheerun/vim-polyglot'
+
         " vim-tmux-runner
         Plug 'christoomey/vim-tmux-runner'
 
@@ -235,7 +238,8 @@
                         set noshowmode
 
                 " fzf settings
-                        let g:fzf_preview_window = 'right:48%'
+                        let g:fzf_layout = {'window':{'width':1,'height':0.98}}
+                        let g:fzf_preview_window = 'up:45%'
                         let g:fzf_colors =
                         \ { 'fg':      ['fg', 'Normal'],
                           \ 'bg':      ['bg', 'Normal'],
@@ -283,6 +287,7 @@
                         let g:which_key_map.g.k = 'prev'
 
                 " lsp settings
+                        set completefunc=LanguageClient#complete
                         let g:LanguageClient_serverCommands = {
                         \ 'cmake': ['cmake-language-server'],
                         \ 'cpp': ['ccls'],
@@ -292,14 +297,6 @@
                         \ 'python': ['pyls'],
                         \ 'rust': ['rust-analyzer'],
                         \ }
-
-                " treesitter better syntax
-                        lua require'nvim-treesitter.configs'.setup {
-                        \    highlight = {
-                        \        enable = true,
-                        \    },
-                        \    ensure_installed = "all"
-                        \}
 
                 " vimtmux
                         nnoremap <leader>to :VtrOpenRunner<CR>
