@@ -73,8 +73,8 @@ alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/init.vim'
 alias scrot='cd && cd Images/ && scrot && cd'
 alias irc="TERM=tmux irssi"
 alias epdf="epdfview"
-alias unzip="engrampa"
 alias tmuxk="tmux kill-session -t"
+alias glow="glow -w 60 -p"
 
 # Theming section  
 autoload -U compinit colors zcalc
