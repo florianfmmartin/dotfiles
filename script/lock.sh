@@ -29,12 +29,12 @@ i3lock \
 --bshlcolor=$W        \
 \
 --screen 1            \
-# --blur 10              \
---clock               \
---indicator           \
---timestr="%H:%M:%S"  \
---datestr="%A, %m %Y" \
---keylayout 2         \
+# --blur 10            \
+# --clock               \
+# --indicator           \
+# --timestr="%H:%M:%S"  \
+# --datestr="%A, %m %Y" \
+# --keylayout 2         \
 
 # --veriftext="Drinking verification can..."
 # --wrongtext="Nope!"

@@ -38,10 +38,6 @@ super + b
 super + w
 	firefox
 
-# pcmanfm
-super + f
-	pcmanfm
-
 # ranger
 alt + shift + Return
 	kitty -e ~/script/ranger.sh

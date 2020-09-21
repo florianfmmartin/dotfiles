@@ -119,7 +119,7 @@
                         set timeoutlen=300
                         set cursorline
                         set fillchars=vert:\ 
-                        call matchadd('SpellBad', '\%>80v')
+                        call matchadd('SpellBad', '\%80v')
                         hi! VertSplit ctermfg=145 guifg=#ABB2BF
                         hi! Comment cterm=bold gui=bold
 

@@ -60,7 +60,6 @@ alias qq='exit'
 alias ocaml='rlwrap ocaml'
 alias ranger='source ranger'
 alias rm='rm -i'
-alias uu='pamac update -a'
 alias rr='source ranger'
 alias zd='cd $(tree -diraf | fzf)'
 alias cp="cp -i"
@@ -70,8 +69,6 @@ alias gitu='git add . && git commit && git push'
 alias vim='TERM=xterm-256color nvim'
 alias nvim='TERM=xterm-256color nvim'
 alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/init.vim'
-alias scrot='cd && cd Images/ && scrot && cd'
-alias irc="TERM=tmux irssi"
 alias epdf="epdfview"
 alias tmuxk="tmux kill-session -t"
 alias glow="glow -w 60 -p"
