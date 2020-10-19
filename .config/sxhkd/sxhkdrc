@@ -60,7 +60,7 @@ XF86Audio{Prev,Next}
 
 # rotate
 super + r
-	xrandr --output HDMI1 --rotate left
+	xrandr --output HDMI1 --rotate right
 
 super + shift + r
 	xrandr --output HDMI1 --rotate normal

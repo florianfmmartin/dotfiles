@@ -249,6 +249,9 @@ zinit snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
 # add script to path
 export "PATH=/home/florian/script:$PATH"
 
+# add go bin
+export "PATH=/home/florian/go/bin:$PATH"
+
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370"
 
 # startx or tmux

@@ -32,10 +32,8 @@
             \ 'do': 'bash install.sh',
             \ }
 
-        " treesitter better syntax
+        " better syntax
         Plug 'nvim-treesitter/nvim-treesitter'
-
-        " polyglot
         Plug 'sheerun/vim-polyglot'
 
         " vim-tmux-runner
@@ -47,9 +45,6 @@
         " ranger
         Plug 'rbgrouleff/bclose.vim'
         Plug 'francoiscabrol/ranger.vim'
-
-        " snips
-        Plug 'SirVer/ultisnips'
 
         call plug#end()
 
@@ -133,7 +128,7 @@
                         nnoremap ge :bp <BAR> bd #<CR>
 
                 " clipboard
-                        set clipboard+=unnamedplus
+                        set clipboard=unnamedplus
                         vnoremap T $hy
 
                         nnoremap <leader>y yyp
@@ -293,6 +288,8 @@
                         \ 'cpp': ['ccls'],
                         \ 'html': ['html-languageserver'],
                         \ 'latex': ['texlab'],
+                        \ 'plaintex': ['texlab'],
+                        \ 'tex': ['texlab'],
                         \ 'ocaml': ['ocamllsp'],
                         \ 'python': ['pyls'],
                         \ 'rust': ['rust-analyzer'],
@@ -326,6 +323,9 @@
                         let g:UltiSnipsExpandTrigger="<tab>"
                         let g:UltiSnipsJumpForwardTrigger="<tab>"
                         let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+                " nvim treesitte
+                        lua require'nvim-treesitter.configs'.setup{ensure_installed="all",highlight={enable=true}}
 
         " empty?
         if empty(argv())
