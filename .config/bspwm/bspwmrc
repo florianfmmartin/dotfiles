@@ -1,12 +1,11 @@
 #! /bin/sh
 
 sxhkd &
-nitrogen --set-zoom-fill /home/florian/perso/base16/nord_wall.jpg &
+nitrogen --set-zoom-fill /home/florian/git/dotfiles/nord_wall.jpg &
 xsetroot -cursor_name left_ptr &
 polybar -r main &
 xmodmap.sh &
 wmname LG3D &
-jack.sh &
 picom &
 
 bspc monitor -d I II III IV

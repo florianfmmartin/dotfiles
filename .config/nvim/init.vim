@@ -56,7 +56,6 @@
         "----------"
                 " theme settings
                         set termguicolors
-                        source ~/.config/base16-universal-manager/out/base16.vim
 
                 " leader
                         let mapleader = ","
