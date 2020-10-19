@@ -1,0 +1,15 @@
+session_name: taln
+windows:
+  - windows_name: taln
+    panes:
+      - shell_command:
+        - cd ~/perso/Cours/A20/IFT-4022_TALN/tp1/tp1_2020/
+        - sleep 1
+        - vim
+      - shell_command:
+        - cd ~/perso/Cours/A20/IFT-4022_TALN/tp1/
+        - sleep 1
+        - clear
+        - zathura ~/perso/Cours/A20/IFT-4022_TALN/tp1/enonce.pdf & diswon
+        - cd ~/perso/Cours/A20/IFT-4022_TALN/tp1/tp1_2020
+        - pipenv shell
