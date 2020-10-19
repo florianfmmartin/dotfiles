@@ -3,8 +3,8 @@
 "-------------"
         call plug#begin('~/.vim/plugged')
 
-        " theme plugins
-        Plug 'joshdick/onedark.vim'
+        " base16
+        Plug 'chriskempson/base16-vim'
 
         " airline plugin
         Plug 'vim-airline/vim-airline'
@@ -56,7 +56,7 @@
         "----------"
                 " theme settings
                         set termguicolors
-                        colorscheme onedark
+                        source ~/.config/base16-universal-manager/out/base16.vim
 
                 " leader
                         let mapleader = ","

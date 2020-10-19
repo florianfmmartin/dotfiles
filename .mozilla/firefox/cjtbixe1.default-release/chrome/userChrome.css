@@ -1,37 +1,37 @@
  :root {
 
    /* Minimal Functional Fox variables*/
-  --mff-bg: #282c34;
-  --mff-icon-color: #abb2bf;
+  --mff-bg: #2e3440;
+  --mff-icon-color: #e5e9f0;
   --mff-nav-toolbar-padding: 8px;
   --mff-sidebar-bg: var(--mff-bg);
-  --mff-sidebar-color: #abb2bf;
+  --mff-sidebar-color: #e5e9f0;
   --mff-tab-border-radius: 0px;
-  --mff-tab-color: #4b5263;
+  --mff-tab-color: #4c566a;
   --mff-tab-font-family: "Fira Code Retina", sans;
   --mff-tab-font-size: 11pt;
   --mff-tab-font-weight: 400;
   --mff-tab-height: 32px;
-  --mff-tab-pinned-bg: #56b6c2;
-  --mff-tab-selected-bg: #61afef;
-  --mff-tab-soundplaying-bg: #c678dd;
-  --mff-urlbar-color: #5c6370;
-  --mff-urlbar-focused-color: #abb2bf;
+  --mff-tab-pinned-bg: #88c0d0;
+  --mff-tab-selected-bg: #81a1c1;
+  --mff-tab-soundplaying-bg: #b48ead;
+  --mff-urlbar-color: #4c566a;
+  --mff-urlbar-focused-color: #e5e9f0;
   --mff-urlbar-font-family: "Fira Code Retina", serif;
   --mff-urlbar-font-size: 12pt;
   --mff-urlbar-font-weight: 700;
-  --mff-urlbar-results-color: #abb2bf;
+  --mff-urlbar-results-color: #e5e9f0;
   --mff-urlbar-results-font-family: "Fira Code Retina", serif;
   --mff-urlbar-results-font-size: 12pt;
   --mff-urlbar-results-font-weight: 700;
-  --mff-urlbar-results-url-color: #e5c07b;
+  --mff-urlbar-results-url-color: #ebcb8b;
 
   /* Overriden Firefox variables*/
   --autocomplete-popup-background: var(--mff-bg) !important;
   --default-arrowpanel-background: var(--mff-bg) !important;
-  --default-arrowpanel-color: #abb2bf !important;
+  --default-arrowpanel-color: #e5e9f0 !important;
   --lwt-toolbarbutton-icon-fill: var(--mff-icon-color) !important;
-  --panel-disabled-color: #ff56b6c2;
+  --panel-disabled-color: #ffb48ead;
   --toolbar-bgcolor: var(--mff-bg) !important;
   --urlbar-separator-color: transparent !important;
 }
@@ -98,7 +98,7 @@ hbox.tab-content[pinned=true] .tab-text {
 }
 
 #tabbrowser-tabs {
-  --tab-loading-fill: #5c6370 !important;
+  --tab-loading-fill: #4c566a !important;
 
 }
 
@@ -172,11 +172,11 @@ width: 50% !important;
 }
 
 .urlbarView-row[type="bookmark"] > span{
-  color: #98c379 !important;
+  color: #a3be8c !important;
 }
 
 .urlbarView-row[type="switchtab"] > span{
-  color: #d19a66 !important;
+  color: #ebcb8b !important;
 }
 
 .urlbarView-url, .search-panel-one-offs-container {
@@ -254,7 +254,7 @@ tab.tabbrowser-tab {
 }
 
 tab.tabbrowser-tab:hover {
-  box-shadow: 0 1px 4px #5c6370;
+  box-shadow: 0 1px 4px #4c566a;
 }
 
 image#star-button {
@@ -306,7 +306,7 @@ toolbarbutton {
 }
 
 #sidebar-switcher-target {
-/*   color: #abb2bf !important; */
+/*   color: #e5e9f0 !important; */
 }
 
 #sidebar-box {
