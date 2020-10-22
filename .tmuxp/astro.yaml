@@ -3,11 +3,11 @@ windows:
   - windows_name: astro
     panes:
       - shell_command:
-        - cd ~/git/Astro46/
+        - cd ~/git/astro46/
         - sleep 1
         - vim README.md
       - shell_command:
-        - cd ~/git/Astro46/
+        - cd ~/git/astro46/
         - clear
         - sleep 1
         - ls

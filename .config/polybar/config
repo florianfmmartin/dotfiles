@@ -6,10 +6,13 @@
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
 [colors]
-background = #282c34
-foreground = #abb2bf
-primary    = #4b5263
-alert      = #e06c75
+; %%base16_template: polybar##default %%
+background = #2E3440
+foreground = #E5E9F0
+primary    = #4C566A
+alert      = #BF616A
+
+; %%base16_template_end%%
 
 [bar/main]
 width           = 100%
@@ -22,25 +25,27 @@ padding-right   = 1
 padding-left    = 0
 offset-y        = 0
 module-margin   = 1
-separator       = %{F#4b5263}|%{F-}
+separator       = %{T3}|%{T-}
 background      = ${colors.background}
 foreground      = ${colors.foreground}
 font-0          = FiraCode:size=14;3
 font-1          = FiraCode:size=18;5
+font-2          = FiraCode:size=11;2
 cursor-scroll   = ns-resize
 enable-ipc      = true
 wm-name         = bspwm
 
 modules-left   = work
 modules-center = time
-modules-right  = pacman backlight pulse net battery
+modules-right  = pacman backlight alsa net battery
 
 [module/battery]
 type              = internal/battery
 battery           = BAT0
 adapter           = AC
 label-charging    = B:%percentage:3%
-label-discharging = B:%{F#e06c75}%percentage:3%%{F-}
+label-discharging-foreground = ${colors.alert}
+label-discharging = B:%percentage:3%
 label-full        = B:%percentage:3%
 
 [module/time]
@@ -60,12 +65,15 @@ label-empty-padding       = 2
 label-active-foreground   = ${colors.foreground}
 label-active-background   = ${colors.background}
 label-active              = %name%
-label-occupied            = %{F#4b5263}%name%%{F-}
-label-urgent              = %{F#4b5263}%name%%{F-}
-label-empty               = %{F#4b5263}%name%%{F-}
+label-occupied-foreground = ${colors.primary}
 label-occupied-background = ${colors.background}
+label-occupied            = %name%
+label-urgent-foreground   = ${colors.primary}
 label-urgent-background   = ${colors.background}
+label-urgent              = %name%
+label-empty-foreground    = ${colors.primary}
 label-empty-background    = ${colors.background}
+label-empty               = %name%
 
 [module/pulse]
 type          = internal/pulseaudio
@@ -80,8 +88,9 @@ click-right   = exec pavucontrol &
 [module/net]
 type               = internal/network
 interface          = wlp3s0
-label-connected    = W: ON%{A}
-label-disconnected = W:%{F#e06c75}OFF%{A}%{F-}
+label-connected    = W: ON
+label-disconnected-foreground = ${colors.alert}
+label-disconnected = W:OFF
 
 [module/pacman]
 type     = custom/script

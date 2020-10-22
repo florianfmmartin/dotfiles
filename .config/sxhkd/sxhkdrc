@@ -28,7 +28,7 @@ ctrl + shift + alt + l
 
 # lock screen
 ctrl + alt + l
-	~/script/lock.sh
+	betterlockscreen -l
 
 # polybar hide
 super + b
@@ -38,9 +38,13 @@ super + b
 super + w
 	firefox
 
+# spotify
+super + s
+	kitty -e ~/script/spotify-tui.sh
+
 # ranger
 alt + shift + Return
-	kitty -e ~/script/ranger.sh
+	kitty -e nvim
 
 #
 # audio and backligh
@@ -48,11 +52,11 @@ alt + shift + Return
 
 # audio
 XF86Audio{Raise,Lower}Volume
-	amixer set Master 5%{+,-}
+	amixer sset Master 5%{+,-}
 
 # audio mute
 XF86AudioMute
-	amixer set Master toggle
+	amixer sset Master toggle
 
 # backlight
 XF86Audio{Prev,Next}

@@ -5,6 +5,7 @@
 
         " base16
         Plug 'chriskempson/base16-vim'
+        Plug 'arcticicestudio/nord-vim'
 
         " airline plugin
         Plug 'vim-airline/vim-airline'
@@ -56,6 +57,8 @@
         "----------"
                 " theme settings
                         set termguicolors
+                        colorscheme nord
+                        " source ~/git/dotfiles/.config/base16/output/vim/colors/base16-nord.vim
 
                 " leader
                         let mapleader = ","
@@ -250,8 +253,8 @@
                           \ 'spinner': ['fg', 'Label'],
                           \ 'header':  ['fg', 'Comment'] }
 
-                        nnoremap <leader>f :Files ~<CR>
-                        nnoremap <leader>z :Files<CR>
+                        nnoremap <leader>z :Files ~<CR>
+                        nnoremap <leader>f :Files<CR>
                         nnoremap <leader>s :Lines<CR>
                         nnoremap <leader>w :Lines <C-R>=expand("<cword>")<CR><CR>
                         nnoremap <leader>lg :Tags<CR>

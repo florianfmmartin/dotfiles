@@ -1,14 +1,17 @@
 #! /bin/sh
 
 sxhkd &
-nitrogen --set-zoom-fill /home/florian/git/dotfiles/nord_wall.jpg &
+nitrogen --set-zoom-fill /home/florian/perso/simon_1.png &
 xsetroot -cursor_name left_ptr &
 polybar -r main &
 xmodmap.sh &
 wmname LG3D &
-picom &
+# picom --config ~/.config/picom/picom.conf &
+alsactl init &
+setxkbmap -layout "ca" &
+spotifyd --no-daemon &
 
-bspc monitor -d I II III IV
+bspc monitor -d I II III IV V VI
 
 bspc config border_width          0
 bspc config window_gap            0

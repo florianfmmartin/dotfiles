@@ -61,6 +61,7 @@ alias ocaml='rlwrap ocaml'
 alias ranger='source ranger'
 alias rm='rm -i'
 alias rr='source ranger'
+alias uu='yay -S $(yay -Qe | grep -Go ".*git")'
 alias zd='cd $(tree -diraf | fzf)'
 alias cp="cp -i"
 alias df='df -h'
