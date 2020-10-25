@@ -1,12 +1,12 @@
 #! /bin/sh
 
 sxhkd &
-nitrogen --set-zoom-fill /home/florian/perso/simon_1.png &
+nitrogen --set-zoom-fill /home/florianfmmartin/perso/simon.jpg &
 xsetroot -cursor_name left_ptr &
 polybar -r main &
 xmodmap.sh &
 wmname LG3D &
-# picom --config ~/.config/picom/picom.conf &
+picom --config ~/.config/picom/picom.conf &
 alsactl init &
 setxkbmap -layout "ca" &
 spotifyd --no-daemon &
@@ -21,9 +21,6 @@ bspc config top_padding           30
 bspc config split_ratio           0.52
 bspc config borderless_monocle    false
 bspc config gapless_monocle       false
-
-bspc config focused_border_color  "#abb2bf"
-bspc config normal_border_color   "#4b5263"
 
 bspc config focus_follows_pointer true
 

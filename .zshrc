@@ -248,10 +248,10 @@ zinit light-mode for \
 zinit snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
 
 # add script to path
-export "PATH=/home/florian/script:$PATH"
+export "PATH=/home/florianfmmartin/script:$PATH"
 
 # add go bin
-export "PATH=/home/florian/go/bin:$PATH"
+export "PATH=/home/florianfmmartin/go/bin:$PATH"
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370"
 
@@ -264,4 +264,4 @@ else
 fi
 
 # opam configuration
-test -r /home/florian/.opam/opam-init/init.zsh && . /home/florian/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+test -r /home/florianfmmartin/.opam/opam-init/init.zsh && . /home/florianfmmartin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
