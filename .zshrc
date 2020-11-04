@@ -55,7 +55,6 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 ## Alias section 
 
 alias ls="ls -A --color"
-alias i3lock="~/script/lock.sh"
 alias qq='exit'
 alias ocaml='rlwrap ocaml'
 alias ranger='source ranger'

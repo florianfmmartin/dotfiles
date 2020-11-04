@@ -3,7 +3,15 @@
 # start
 echo 'Start of remaping...'
 
+echo 'Sleep 2 start'
 sleep 3
+echo 'Sleep 2 end'
+
+setxkbmap ca
+
+echo 'Sleep 1 start'
+sleep 3
+echo 'Sleep 1 end'
 
 # set keyboard speed
 xset r rate 225 90
@@ -15,6 +23,7 @@ xmodmap -e 'clear lock'
 
 # map shift + . to "
 xmodmap -e "keycode 60 = period quotedbl period quotedbl hyphen NoSymbol hyphen"
+
 # map shift + 2 to @
 xmodmap -e "keycode 11 = 2 at 2 at at NoSymbol at NoSymbol 2 quotedbl at"
 

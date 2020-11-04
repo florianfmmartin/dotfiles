@@ -4,7 +4,6 @@
         call plug#begin('~/.vim/plugged')
 
         " base16
-        Plug 'chriskempson/base16-vim'
         Plug 'arcticicestudio/nord-vim'
 
         " airline plugin
@@ -46,6 +45,9 @@
         " ranger
         Plug 'rbgrouleff/bclose.vim'
         Plug 'francoiscabrol/ranger.vim'
+        
+        " deoplete
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
         call plug#end()
 
@@ -58,7 +60,6 @@
                 " theme settings
                         set termguicolors
                         colorscheme nord
-                        " source ~/git/dotfiles/.config/base16/output/vim/colors/base16-nord.vim
 
                 " leader
                         let mapleader = ","
@@ -211,6 +212,7 @@
                 " spell checking
                         inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
                         nnoremap <leader>es :setlocal nospell<CR>
+                        au Filetype tex setlocal spell spelllang=fr
                         nnoremap <leader>ef :setlocal spell spelllang=fr<CR>
                         nnoremap <leader>ee :setlocal spell spelllang=en<CR>
                         let g:which_key_map.e = {
@@ -285,6 +287,9 @@
 
                 " lsp settings
                         set completefunc=LanguageClient#complete
+                        let g:LanguageClient_virtualTextPrefix = "-- "
+                        let g:LanguageClient_hideVirtualTextsOnInsert = 1
+
                         let g:LanguageClient_serverCommands = {
                         \ 'cmake': ['cmake-language-server'],
                         \ 'cpp': ['ccls'],
@@ -296,6 +301,10 @@
                         \ 'python': ['pyls'],
                         \ 'rust': ['rust-analyzer'],
                         \ }
+                
+                " deoplete
+                        let g:deoplete#enable_at_startup = 1
+                        inoremap ` <C-n><Esc>a
 
                 " vimtmux
                         nnoremap <leader>to :VtrOpenRunner<CR>

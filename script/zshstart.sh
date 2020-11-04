@@ -6,10 +6,18 @@ then
     then
         echo -n "tmux sesh: "
         read INPUT
+        if [ -z "$INPUT" ]
+        then
+            INPUT="florian"
+        fi
     else
         tmux ls
         echo -n "tmux sesh: "
         read INPUT
+        if [ -z "$INPUT" ]
+        then
+            INPUT="florian"
+        fi
     fi
 else
     INPUT=""

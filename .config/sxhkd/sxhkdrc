@@ -28,7 +28,7 @@ ctrl + shift + alt + l
 
 # lock screen
 ctrl + alt + l
-	betterlockscreen -l
+	betterlockscreen -l --off 30
 
 # polybar hide
 super + b
@@ -40,7 +40,7 @@ super + w
 
 # spotify
 super + s
-	kitty -e ~/script/spotify-tui.sh
+	firefox --new-window https://open.spotify.com
 
 # ranger
 alt + shift + Return
@@ -61,13 +61,6 @@ XF86AudioMute
 # backlight
 XF86Audio{Prev,Next}
 	xbacklight {-dec,-inc} 5
-
-# rotate
-super + r
-	xrandr --output HDMI1 --rotate right
-
-super + shift + r
-	xrandr --output HDMI1 --rotate normal
 
 #
 # bspwm hotkeys

@@ -8,7 +8,7 @@ xmodmap.sh &
 wmname LG3D &
 picom --config ~/.config/picom/picom.conf &
 alsactl init &
-setxkbmap -layout "ca" &
+pulseaudio &
 spotifyd --no-daemon &
 
 bspc monitor -d I II III IV V VI
