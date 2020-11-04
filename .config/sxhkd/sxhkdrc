@@ -40,7 +40,7 @@ super + w
 
 # spotify
 super + s
-	firefox --new-window https://open.spotify.com
+	firefox --ssb https://open.spotify.com
 
 # ranger
 alt + shift + Return
