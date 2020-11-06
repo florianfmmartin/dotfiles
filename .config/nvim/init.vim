@@ -51,6 +51,14 @@ Plug 'francoiscabrol/ranger.vim'
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" float
+Plug 'ncm2/float-preview.nvim'
+
+" nerdtree
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 " whichkey
@@ -88,6 +96,12 @@ source /home/florianfmmartin/.config/nvim/ranger.vim
 
 " deoplete
 source /home/florianfmmartin/.config/nvim/deoplete.vim
+
+" float
+source /home/florianfmmartin/.config/nvim/float.vim
+
+" nerdtree
+source /home/florianfmmartin/.config/nvim/nerdtree.vim
 
 " whichkey mapping
 nnoremap <silent> <leader> :WhichKey ','<CR>

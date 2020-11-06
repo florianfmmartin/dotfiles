@@ -1,0 +1,14 @@
+session_name: taln
+windows:
+  - windows_name: taln
+    panes:
+      - shell_command:
+        - cd ~/perso/Cours/A20/IFT-4022_TALN/tp2/code/
+        - sleep 1
+        - vim ~/perso/Cours/A20/IFT-4022_TALN/tp2/code/negation_conversion.py ~/perso/Cours/A20/IFT-4022_TALN/tp2/code/sentiment_analysis.py
+      - shell_command:
+        - cd ~/perso/Cours/A20/IFT-4022_TALN/tp2/code/
+        - clear
+        - sleep 1
+        - pipenv shell
+
