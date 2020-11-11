@@ -4,11 +4,4 @@ windows:
     panes:
       - shell_command:
         - cd ~/perso/Cours/A20/IFT-4022_TALN/tp2/code/
-        - sleep 1
-        - vim ~/perso/Cours/A20/IFT-4022_TALN/tp2/code/negation_conversion.py ~/perso/Cours/A20/IFT-4022_TALN/tp2/code/sentiment_analysis.py
-      - shell_command:
-        - cd ~/perso/Cours/A20/IFT-4022_TALN/tp2/code/
-        - clear
-        - sleep 1
-        - pipenv shell
-
+        - pipenv run nvim -S ~/.local/share/nvim/session/taln

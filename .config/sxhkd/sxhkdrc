@@ -4,7 +4,12 @@
 
 # terminal emulator
 alt + Return
+	kitty
+
+# nvim
+alt + shift + Return
 	kitty -e nvim
+
 
 # program launcher
 alt + @space
