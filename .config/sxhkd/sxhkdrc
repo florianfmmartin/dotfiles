@@ -4,7 +4,7 @@
 
 # terminal emulator
 alt + Return
-	kitty
+	kitty -e nvim
 
 # program launcher
 alt + @space
@@ -21,10 +21,6 @@ alt + Tab
 # make sxhkd reload its configuration files:
 alt + Escape
 	pkill -USR1 -x sxhkd
-
-# logout
-ctrl + shift + alt + l
-	loginctl terminate-user florian
 
 # lock screen
 ctrl + alt + l
@@ -44,11 +40,7 @@ super + s
 
 # discord
 super + d
-	firefox --ssb https://discord.com/app
-
-# ranger
-alt + shift + Return
-	kitty -e nvim
+	apulse firefox --ssb https://discord.com/app
 
 #
 # audio and backligh

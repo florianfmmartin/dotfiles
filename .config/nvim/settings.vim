@@ -50,8 +50,7 @@ set scrolloff=8
 set path+=**
 set timeoutlen=300
 set cursorline
-set fillchars=vert:\ 
-call matchadd('SpellBad', '\%80v')
+set fillchars=vert:\|
 hi! VertSplit ctermfg=145 guifg=#ECEFF4
 hi! Comment cterm=bold gui=bold
 
@@ -64,10 +63,14 @@ set hidden
 
 nnoremap gt :bnext<CR>
 nnoremap gb :bprevious<CR>
-nnoremap ge :bp <BAR> bd #<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap ge :Bclose<CR>
+nnoremap <leader>bl :Buffers<CR>
+nnoremap <leader>bn :enew<CR>
 
-let g:which_key_map.b = 'buffers'
+let g:which_key_map.b = { 'name' : 'buffer' }
+let g:which_key_map.b.l = 'list'
+let g:which_key_map.b.n = 'new'
+let g:which_key_map.b.d = 'delete'
 
 " clipboard
 set clipboard=unnamedplus
@@ -103,6 +106,18 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" split resize
+nnoremap <leader>vk :vertical-resize -2<CR>
+nnoremap <leader>vj :vertical-resize +2<CR>
+nnoremap <leader>vv <C-w>=
+
+let g:which_key_map.v = {
+            \ 'name' : 'resize',
+            \ 'k' : '++',
+            \ 'j' : '--',
+            \ 'v' : 'reset',
+            \ }
 
 " autocompletion setup
 set completeopt=menuone
@@ -159,7 +174,7 @@ au TextYankPost * silent! lua vim.highlight.on_yank() {timeout=800}
 " spell checking
 au Filetype tex setlocal spell spelllang=fr
 
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+inoremap <leader>` <c-g>u<Esc>[s1z=`]a<c-g>u
 nnoremap <leader>ef :setlocal spell spelllang=fr<CR>
 nnoremap <leader>ee :setlocal spell spelllang=en<CR>
 nnoremap <leader>es :setlocal nospell<CR>
@@ -171,8 +186,12 @@ let g:which_key_map.e = {
             \ 'e' : 'english',
             \ }
 
-" empty?
-if empty(argv())
-    au VimEnter * Files!
-endif
+" terminal
+tnoremap <leader><leader> <C-\><C-n>
+nnoremap <leader>t :terminal<CR>
+nnoremap <leader>tt :e term://
+
+let g:which_key_map.t = 'terminal'
+
+autocmd TermOpen * exec "normal i"
 

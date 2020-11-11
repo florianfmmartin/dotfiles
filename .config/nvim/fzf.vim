@@ -18,15 +18,15 @@ let g:fzf_colors =
             \ 'spinner': ['fg', 'Label'],
             \ 'header':  ['fg', 'Comment'] }
 
-nnoremap <leader>z :Files ~<CR>
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>s :Lines<CR>
-nnoremap <leader>w :Lines <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>lg :Tags<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fh :Files ~<CR>
+nnoremap <leader>fs :Lines<CR>
+nnoremap <leader>fw :Lines <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>ft :Tags<CR>
 
-let g:which_key_map.f = 'fzf home'
-let g:which_key_map.z = 'fzf cwd'
-let g:which_key_map.s = 'search'
-let g:which_key_map.w = '* fzf '
-let g:which_key_map.l = { 'name' : 'lang' }
-let g:which_key_map.l.g = 'tags gen'
+let g:which_key_map.f = { 'name' : 'fzf' }
+let g:which_key_map.f.f = 'cwd'
+let g:which_key_map.f.h = 'home'
+let g:which_key_map.f.s = 'search'
+let g:which_key_map.f.w = 'word fzf '
+let g:which_key_map.f.t = 'tags gen'

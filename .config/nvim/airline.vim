@@ -9,4 +9,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffers_label = ''
 let g:airline_section_c = '%f'
 let g:airline_section_z = '%l/%L : %02c'
+let g:airline#extensions#tabline#ignore_bufadd_pat = '!|defx|gundo|nerd_tree|startify|tagbar|undotree|vimfiler'
+let g:airline#extensions#term#enabled = 0
 set noshowmode

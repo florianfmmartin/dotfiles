@@ -36,7 +36,7 @@ Plug 'autozimu/LanguageClient-neovim', {
             \ }
 
 " treesitter
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 " polyglot
 Plug 'sheerun/vim-polyglot'
@@ -54,10 +54,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " float
 Plug 'ncm2/float-preview.nvim'
 
-" nerdtree
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-            \ Plug 'ryanoasis/vim-devicons'
+" startify
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -100,8 +98,8 @@ source /home/florianfmmartin/.config/nvim/deoplete.vim
 " float
 source /home/florianfmmartin/.config/nvim/float.vim
 
-" nerdtree
-source /home/florianfmmartin/.config/nvim/nerdtree.vim
+" startify
+source /home/florianfmmartin/.config/nvim/startify.vim
 
 " whichkey mapping
 nnoremap <silent> <leader> :WhichKey ','<CR>
