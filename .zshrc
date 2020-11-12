@@ -218,7 +218,7 @@ esac
 source ~/git/agnoster-zsh-theme/agnoster.zsh-theme
 
 export FZF_DEFAULT_COMMAND='find .'
-export BAT_THEME="TwoDark"
+export BAT_THEME="base16"
 
 
 ### Added by Zinit's installer
