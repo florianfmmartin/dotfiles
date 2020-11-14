@@ -41,11 +41,11 @@ super + w
 
 # spotify
 super + s
-	firefox --ssb https://open.spotify.com
+	firefox --safe-mode --ssb https://open.spotify.com
 
 # discord
 super + d
-	apulse firefox --ssb https://discord.com/app
+	apulse firefox --safe-mode --ssb https://discord.com/app
 
 #
 # audio and backligh

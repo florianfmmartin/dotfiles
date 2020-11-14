@@ -57,49 +57,65 @@ Plug 'ncm2/float-preview.nvim'
 " startify
 Plug 'mhinz/vim-startify'
 
+" tagbar
+Plug 'preservim/tagbar'
+
+" nerdtree
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 call plug#end()
 
 " whichkey
-source /home/florianfmmartin/.config/nvim/whichkey.vim
+source ~/.config/nvim/whichkey.vim
 
 " settings
-source /home/florianfmmartin/.config/nvim/settings.vim
+source ~/.config/nvim/settings.vim
+
+" terminal related
+source ~/.config/nvim/term_set.vim
 
 " colorscheme
-source /home/florianfmmartin/.config/nvim/colorscheme.vim
+source ~/.config/nvim/colorscheme.vim
 
 " airline
-source /home/florianfmmartin/.config/nvim/airline.vim
+source ~/.config/nvim/airline.vim
 
 " fzf
-source /home/florianfmmartin/.config/nvim/fzf.vim
+source ~/.config/nvim/fzf.vim
 
 " tcomment
-source /home/florianfmmartin/.config/nvim/tcomment.vim
+source ~/.config/nvim/tcomment.vim
 
 " signify
-source /home/florianfmmartin/.config/nvim/signify.vim
+source ~/.config/nvim/signify.vim
 
 " lsp
-source /home/florianfmmartin/.config/nvim/lsp.vim
+source ~/.config/nvim/lsp.vim
 
 " treesitter
-source /home/florianfmmartin/.config/nvim/treesitter.vim
+source ~/.config/nvim/treesitter.vim
 
 " tmux
-source /home/florianfmmartin/.config/nvim/tmux.vim
+source ~/.config/nvim/tmux.vim
 
 " ranger
-source /home/florianfmmartin/.config/nvim/ranger.vim
+source ~/.config/nvim/ranger.vim
 
 " deoplete
-source /home/florianfmmartin/.config/nvim/deoplete.vim
+source ~/.config/nvim/deoplete.vim
 
 " float
-source /home/florianfmmartin/.config/nvim/float.vim
+source ~/.config/nvim/float.vim
 
 " startify
-source /home/florianfmmartin/.config/nvim/startify.vim
+source ~/.config/nvim/startify.vim
+"
+" tagbar
+source ~/.config/nvim/tagbar.vim
+
+" nerdtree
+source ~/.config/nvim/nerdtree.vim
 
 " whichkey mapping
 nnoremap <silent> <leader> :WhichKey ','<CR>
