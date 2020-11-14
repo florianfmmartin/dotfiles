@@ -20,6 +20,7 @@ nmap <silent><leader>lr <Plug>(lcn-rename)
 nmap <silent><leader>ld <Plug>(lcn-definition)
 nmap <silent><leader>li <Plug>(lcn-implementation)
 nmap <silent><leader>lf <Plug>(lcn-format)
+nmap <silent><leader>ls <Plug>(lcn-symbols)
 
 let g:which_key_map.l = {
     \ 'name': 'lang',

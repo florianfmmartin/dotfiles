@@ -63,7 +63,7 @@ set hidden
 
 nnoremap gt :bnext<CR>
 nnoremap gb :bprevious<CR>
-nnoremap ge :Bclose<CR>
+nnoremap ge :bdelete!<CR>
 nnoremap <leader>bl :Buffers<CR>
 nnoremap <leader>bn :enew<CR>
 
@@ -174,7 +174,7 @@ au TextYankPost * silent! lua vim.highlight.on_yank() {timeout=800}
 " spell checking
 au Filetype tex setlocal spell spelllang=fr
 
-inoremap <leader>` <c-g>u<Esc>[s1z=`]a<c-g>u
+inoremap <leader>¸ <c-g>u<Esc>[s1z=`]a<c-g>u
 nnoremap <leader>ef :setlocal spell spelllang=fr<CR>
 nnoremap <leader>ee :setlocal spell spelllang=en<CR>
 nnoremap <leader>es :setlocal nospell<CR>
@@ -185,13 +185,4 @@ let g:which_key_map.e = {
             \ 'f' : 'français',
             \ 'e' : 'english',
             \ }
-
-" terminal
-tnoremap <leader><leader> <C-\><C-n>
-nnoremap <leader>t :terminal<CR>
-nnoremap <leader>tt :e term://
-
-let g:which_key_map.t = 'terminal'
-
-autocmd TermOpen * exec "normal i"
 

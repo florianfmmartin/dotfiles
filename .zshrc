@@ -56,6 +56,7 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 
 alias ls="ls -A --color"
 alias qq='exit'
+alias vv='TERM=xterm-256color nvim'
 alias ocaml='rlwrap ocaml'
 alias ranger='source ranger'
 alias rm='rm -i'
@@ -68,7 +69,7 @@ alias free='free -m'
 alias gitu='git add . && git commit && git push'
 alias vim='TERM=xterm-256color nvim'
 alias nvim='TERM=xterm-256color nvim'
-alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/init.vim'
+alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/*'
 alias epdf="epdfview"
 alias tmuxk="tmux kill-session -t"
 alias glow="glow -w 60 -p"
