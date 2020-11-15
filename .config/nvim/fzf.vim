@@ -22,11 +22,11 @@ nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fh :Files ~<CR>
 nnoremap <leader>fs :Lines<CR>
 nnoremap <leader>fw :Lines <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>ft :Tags<CR>
+nnoremap <leader>fb :Buffers<CR>
 
 let g:which_key_map.f = { 'name' : 'fzf' }
 let g:which_key_map.f.f = 'cwd'
 let g:which_key_map.f.h = 'home'
 let g:which_key_map.f.s = 'search'
 let g:which_key_map.f.w = 'word fzf '
-let g:which_key_map.f.t = 'tags gen'
+let g:which_key_map.f.b = 'buffers'

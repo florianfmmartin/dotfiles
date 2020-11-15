@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'liuchengxu/vim-which-key'
 
 " colorscheme
-Plug 'arcticicestudio/nord-vim'
+Plug 'joshdick/onedark.vim'
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -60,9 +60,9 @@ Plug 'mhinz/vim-startify'
 " tagbar
 Plug 'preservim/tagbar'
 
-" nerdtree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" nvim-tree-lua
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
@@ -110,12 +110,12 @@ source ~/.config/nvim/float.vim
 
 " startify
 source ~/.config/nvim/startify.vim
-"
+
 " tagbar
 source ~/.config/nvim/tagbar.vim
 
-" nerdtree
-source ~/.config/nvim/nerdtree.vim
+" nvim-tree-lua
+source ~/.config/nvim/nvim-tree-lua.vim
 
 " whichkey mapping
 nnoremap <silent> <leader> :WhichKey ','<CR>

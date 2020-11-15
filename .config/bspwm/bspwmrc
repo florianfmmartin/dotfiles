@@ -1,7 +1,8 @@
 #! /bin/sh
 
 sxhkd &
-nitrogen --set-zoom-fill /home/florianfmmartin/perso/simon.jpg &
+# nitrogen --set-zoom-fill /home/florianfmmartin/perso/simon.jpg &
+nitrogen --set-zoom-fill ~/perso/simon_computer_one_dark.jpg &
 xsetroot -cursor_name left_ptr &
 polybar -r main &
 xmodmap.sh &
@@ -9,9 +10,14 @@ wmname LG3D &
 picom --config ~/.config/picom/picom.conf &
 alsactl init &
 pulseaudio &
-spotifyd --no-daemon &
 
-bspc monitor -d I II III IV V VI
+if [ $(bspc query -M | wc -l) -eq 2 ]; then
+    xrandr --output eDP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+    bspc monitor HDMI1 -d I II III IV V VI
+    bspc monitor eDP1 -r
+else
+    bspc monitor eDP1 -d I II III IV V VI
+fi
 
 bspc config border_width          0
 bspc config window_gap            0

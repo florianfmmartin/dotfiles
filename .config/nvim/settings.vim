@@ -64,11 +64,9 @@ set hidden
 nnoremap gt :bnext<CR>
 nnoremap gb :bprevious<CR>
 nnoremap ge :bdelete!<CR>
-nnoremap <leader>bl :Buffers<CR>
 nnoremap <leader>bn :enew<CR>
 
 let g:which_key_map.b = { 'name' : 'buffer' }
-let g:which_key_map.b.l = 'list'
 let g:which_key_map.b.n = 'new'
 let g:which_key_map.b.d = 'delete'
 

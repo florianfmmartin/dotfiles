@@ -1,4 +1,4 @@
 " colorscheme config
 
 set termguicolors
-colorscheme nord
+colorscheme onedark

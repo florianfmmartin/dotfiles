@@ -29,5 +29,6 @@ let g:which_key_map.l = {
     \ 'd': 'def',
     \ 'i': 'imp',
     \ 'f': 'format',
+    \ 's': 'symbols',
     \ }
 

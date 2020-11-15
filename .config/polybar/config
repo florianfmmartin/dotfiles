@@ -6,13 +6,10 @@
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
 [colors]
-; %%base16_template: polybar##default %%
-background = #2E3440
-foreground = #E5E9F0
-primary    = #4C566A
-alert      = #BF616A
-
-; %%base16_template_end%%
+background = #282c34
+foreground = #abb2bf
+primary    = #4b5263
+alert      = #e06c75
 
 [bar/main]
 width           = 100%

@@ -73,6 +73,7 @@ alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/*'
 alias epdf="epdfview"
 alias tmuxk="tmux kill-session -t"
 alias glow="glow -w 60 -p"
+alias venv="virtualenv"
 
 # Theming section  
 autoload -U compinit colors zcalc
