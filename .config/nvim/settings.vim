@@ -39,6 +39,12 @@ let g:which_key_map.r.l = 'limit'
 set number relativenumber
 set signcolumn=yes
 
+" wrap
+set linebreak
+set breakindent
+set breakindentopt="shift:4, sbr"
+set showbreak=>-->
+
 " config ui
 filetype plugin on
 syntax on

@@ -1,14 +1,13 @@
 #! /bin/sh
 
 sxhkd &
-# nitrogen --set-zoom-fill /home/florianfmmartin/perso/simon.jpg &
 nitrogen --set-zoom-fill ~/perso/simon_computer_one_dark.jpg &
 xsetroot -cursor_name left_ptr &
 polybar -r main &
 xmodmap.sh &
 wmname LG3D &
 picom --config ~/.config/picom/picom.conf &
-alsactl init &
+# alsactl init &
 pulseaudio &
 
 if [ $(bspc query -M | wc -l) -eq 2 ]; then
