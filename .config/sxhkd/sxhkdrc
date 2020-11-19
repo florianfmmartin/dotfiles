@@ -45,7 +45,7 @@ super + s
 
 # discord
 super + d
-	apulse discord
+	discord
 
 #
 # audio and backligh
