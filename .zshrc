@@ -73,7 +73,8 @@ alias vimrc='TERM=xterm-256color nvim ~/.config/nvim/*'
 alias epdf="epdfview"
 alias tmuxk="tmux kill-session -t"
 alias glow="glow -w 60 -p"
-alias venv="virtualenv"
+alias vipir="source vipir"
+
 
 # Theming section  
 autoload -U compinit colors zcalc
@@ -221,6 +222,7 @@ source ~/git/agnoster-zsh-theme/agnoster.zsh-theme
 
 export FZF_DEFAULT_COMMAND='find .'
 export BAT_THEME="base16"
+export BSPWM_CUSTOM_GAP=0
 
 
 ### Added by Zinit's installer

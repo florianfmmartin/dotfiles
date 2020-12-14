@@ -36,7 +36,7 @@ let g:which_key_map.r.t = 'tabs'
 let g:which_key_map.r.l = 'limit'
 
 " numbers column
-set number relativenumber
+set number
 set signcolumn=yes
 
 " wrap
@@ -133,7 +133,7 @@ inoremap [ []<Left>
 inoremap " ""<Left>
 
 autocmd Filetype vim inoremap " "<Space>
-autocmd Filetype cpp inoremap { {<CR>}<Up>
+autocmd Filetype cpp inoremap { {<CR>}<Up><C-O>$
 autocmd Filetype tex inoremap $ $$<Left>
 
 " move line visual
@@ -143,14 +143,6 @@ xnoremap < <<CR>gv-gv
 xnoremap > ><CR>gv-gv
 
 " naviguation
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
 nnoremap <leader><leader> <Right>
 inoremap <leader><leader> <Right>
 nnoremap ; :

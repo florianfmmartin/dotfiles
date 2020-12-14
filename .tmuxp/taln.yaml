@@ -1,7 +1,0 @@
-session_name: taln
-windows:
-  - windows_name: taln
-    panes:
-      - shell_command:
-        - cd ~/perso/Cours/A20/IFT-4022_TALN/tp2/code/
-        - pipenv run nvim -S ~/.local/share/nvim/session/taln

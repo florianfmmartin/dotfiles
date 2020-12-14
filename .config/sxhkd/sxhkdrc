@@ -10,7 +10,6 @@ alt + Return
 alt + shift + Return
 	kitty -e nvim
 
-
 # program launcher
 alt + @space
 	rofi -font "fira code retina 12" -show run
@@ -34,6 +33,10 @@ ctrl + alt + l
 # polybar hide
 super + b
 	~/script/bartoggle.sh
+
+# gap toggle
+super + g
+	~/script/gap_border_toggle.sh
 
 # chrome
 super + w
