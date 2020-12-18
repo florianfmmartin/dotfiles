@@ -74,6 +74,7 @@ alias epdf="epdfview"
 alias tmuxk="tmux kill-session -t"
 alias glow="glow -w 60 -p"
 alias vipir="source vipir"
+alias tt="tt.sh"
 
 
 # Theming section  
@@ -222,7 +223,6 @@ source ~/git/agnoster-zsh-theme/agnoster.zsh-theme
 
 export FZF_DEFAULT_COMMAND='find .'
 export BAT_THEME="base16"
-export BSPWM_CUSTOM_GAP=0
 
 
 ### Added by Zinit's installer
@@ -262,8 +262,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5c6370"
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]];
 then
     startx
-else
-    [ -z "$VIRTUAL_ENV" ] && ~/script/zshstart.sh
 fi
 
 # opam configuration

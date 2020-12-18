@@ -29,7 +29,7 @@ function LeaderReTab(len, style)
 endfunction
 
 nnoremap <leader>rt :call LeaderReTab(
-nnoremap <leader>rl 039lf<Space>r<CR>
+nnoremap <leader>rl 079lf<Space>r<CR>
 
 let g:which_key_map.r = { 'name' : 'reload' }
 let g:which_key_map.r.t = 'tabs'
