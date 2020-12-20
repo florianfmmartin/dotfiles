@@ -1,18 +1,16 @@
 # configuration file for betterlockscreen
 
 insidecolor=00000000
-ringcolor=abb2bfff
-keyhlcolor=e06c75ff
-bshlcolor=e06c75ff
+ringcolor=00000000
+keyhlcolor=00000000
+bshlcolor=00000000
 separatorcolor=00000000
 insidevercolor=00000000
 insidewrongcolor=e06c75ff
-ringvercolor=abb2bfff
-ringwrongcolor=abb2bfff
-verifcolor=abb2bfff
-timecolor=abb2bfff
-datecolor=abb2bfff
-loginbox=abb2bfff
-font="Fira Code"
-locktext="florianfmmartin"
+ringvercolor=00000000
+ringwrongcolor=00000000
+verifcolor=00000000
+timecolor=00000000
+datecolor=00000000
+loginbox=00000000
 
