@@ -32,23 +32,15 @@ ctrl + alt + l
 
 # polybar hide
 super + b
-	~/script/bartoggle.sh
+	bartoggle.sh
 
 # gap toggle
 super + g
-	~/script/gap_border_toggle.sh
+	gap_border_toggle.sh
 
 # chrome
 super + w
 	firefox
-
-# spotify
-super + s
-	spotify
-
-# discord
-super + d
-	discord
 
 #
 # audio and backligh

@@ -34,7 +34,7 @@ wm-name         = bspwm
 
 modules-left   = work
 modules-center = time
-modules-right  = pacman backlight pulse net battery
+modules-right  = backlight pulse net battery
 
 [module/battery]
 type              = internal/battery
