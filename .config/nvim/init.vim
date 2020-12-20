@@ -1,5 +1,59 @@
 " config
 
+" whichkey
+source ~/.config/nvim/whichkey.vim
+
+" settings
+source ~/.config/nvim/settings.vim
+
+" terminal related
+source ~/.config/nvim/term_set.vim
+
+" colorscheme
+source ~/.config/nvim/colorscheme.vim
+
+" airline
+source ~/.config/nvim/airline.vim
+
+" fzf
+source ~/.config/nvim/fzf.vim
+
+" tcomment
+source ~/.config/nvim/tcomment.vim
+
+" signify
+source ~/.config/nvim/signify.vim
+
+" ranger
+source ~/.config/nvim/ranger.vim
+
+" float
+source ~/.config/nvim/float.vim
+
+" startify
+source ~/.config/nvim/startify.vim
+
+" tagbar
+source ~/.config/nvim/tagbar.vim
+
+" whichkey mapping
+nnoremap <silent> <leader> :WhichKey ','<CR>
+
+" deoplete
+" source ~/.config/nvim/deoplete.vim
+
+" lsp
+" source ~/.config/nvim/lsp.vim
+
+" treesitter
+" source ~/.config/nvim/treesitter.vim
+
+" tmux
+" source ~/.config/nvim/tmux.vim
+
+" nvim-tree-lua
+" source ~/.config/nvim/nvim-tree-lua.vim
+
 " " plugged
 " call plug#begin('~/.vim/plugged')
 "
@@ -65,58 +119,3 @@
 " Plug 'kyazdani42/nvim-web-devicons'
 "
 " call plug#end()
-
-" whichkey
-source ~/.config/nvim/whichkey.vim
-
-" settings
-source ~/.config/nvim/settings.vim
-
-" terminal related
-source ~/.config/nvim/term_set.vim
-
-" colorscheme
-source ~/.config/nvim/colorscheme.vim
-
-" airline
-source ~/.config/nvim/airline.vim
-
-" fzf
-source ~/.config/nvim/fzf.vim
-
-" tcomment
-source ~/.config/nvim/tcomment.vim
-
-" signify
-source ~/.config/nvim/signify.vim
-
-" lsp
-source ~/.config/nvim/lsp.vim
-
-" treesitter
-source ~/.config/nvim/treesitter.vim
-
-" tmux
-source ~/.config/nvim/tmux.vim
-
-" ranger
-source ~/.config/nvim/ranger.vim
-
-" deoplete
-source ~/.config/nvim/deoplete.vim
-
-" float
-source ~/.config/nvim/float.vim
-
-" startify
-source ~/.config/nvim/startify.vim
-
-" tagbar
-source ~/.config/nvim/tagbar.vim
-
-" nvim-tree-lua
-source ~/.config/nvim/nvim-tree-lua.vim
-
-" whichkey mapping
-nnoremap <silent> <leader> :WhichKey ','<CR>
-

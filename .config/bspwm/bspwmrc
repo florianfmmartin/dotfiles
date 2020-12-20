@@ -2,7 +2,7 @@
 
 sxhkd &
 nitrogen --set-zoom-fill ~/git/dotfiles/simon_computer_one_dark.jpg &
-xsetroot -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr 128 &
 polybar -r main &
 xmodmap.sh &
 wmname LG3D &
