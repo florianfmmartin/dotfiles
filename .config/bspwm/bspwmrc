@@ -2,12 +2,12 @@
 
 sxhkd &
 nitrogen --set-zoom-fill ~/git/dotfiles/simon_computer_one_dark.jpg &
-xsetroot -cursor_name left_ptr 128 &
+xsetroot -cursor_name left_ptr &
 polybar -r main &
 xmodmap.sh &
 wmname LG3D &
 picom --config ~/.config/picom/picom.conf &
-pulseaudio &
+# pulseaudio &
 
 if [ $(bspc query -M | wc -l) -eq 2 ]; then
     xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal

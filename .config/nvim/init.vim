@@ -36,11 +36,14 @@ source ~/.config/nvim/startify.vim
 " tagbar
 source ~/.config/nvim/tagbar.vim
 
+" deoplete
+source ~/.config/nvim/deoplete.vim
+
+" nerdtree
+source ~/.config/nvim/nerdtree.vim
+
 " whichkey mapping
 nnoremap <silent> <leader> :WhichKey ','<CR>
-
-" deoplete
-" source ~/.config/nvim/deoplete.vim
 
 " lsp
 " source ~/.config/nvim/lsp.vim

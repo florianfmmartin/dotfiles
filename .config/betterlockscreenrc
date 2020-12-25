@@ -2,15 +2,17 @@
 
 insidecolor=00000000
 ringcolor=00000000
-keyhlcolor=00000000
-bshlcolor=00000000
-separatorcolor=00000000
-insidevercolor=00000000
+keyhlcolor=282c34ff
+bshlcolor=282c34ff
+separatorcolor=282c34ff
+insidevercolor=282c34ff
 insidewrongcolor=e06c75ff
 ringvercolor=00000000
 ringwrongcolor=00000000
 verifcolor=00000000
-timecolor=00000000
-datecolor=00000000
+timecolor=282c34ff
+datecolor=282c34ff
 loginbox=00000000
+locktext='Florian Martin'
+lock_timeout=10
 

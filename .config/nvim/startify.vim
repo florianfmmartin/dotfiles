@@ -7,7 +7,7 @@ let g:startify_lists = [
 
 let g:startify_commands = [
     \ {'f': ':Files'},
-    \ {'r': ':Ranger'},
+    \ {'r': ':RangerEdit'},
     \ {'t': ':terminal'},
     \ ]
 

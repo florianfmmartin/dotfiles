@@ -28,7 +28,7 @@ alt + Escape
 
 # lock screen
 ctrl + alt + l
-	betterlockscreen -l --off 30
+	betterlockscreen -l
 
 # polybar hide
 super + b
