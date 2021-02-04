@@ -2,24 +2,17 @@
 
 # start
 echo 'Start of remaping...'
-
-echo 'Sleep 2 start'
 sleep 3
-echo 'Sleep 2 end'
-
 setxkbmap ca
-
-echo 'Sleep 1 start'
 sleep 3
-echo 'Sleep 1 end'
 
 # set keyboard speed
 xset r rate 225 90
 
 # caps lock = escape
-xmodmap -e 'keycode 66 = Escape'
+# xmodmap -e 'keycode 66 = Escape'
 # deactivate caps locking
-xmodmap -e 'clear lock'
+# xmodmap -e 'clear lock'
 
 # map shift + . to "
 xmodmap -e "keycode 60 = period quotedbl period quotedbl hyphen NoSymbol hyphen"

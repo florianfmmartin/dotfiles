@@ -1,0 +1,20 @@
+# default options
+display_on=0
+span_image=false
+lock_timeout=20
+
+# theme options
+locktext="florianfmmartin"
+font="FiraCode"
+ringcolor=00000000
+insidecolor=00000000
+separatorcolor=00000000
+ringvercolor=abb2bfff
+insidevercolor=00000000
+ringwrongcolor=abb2bf00
+insidewrongcolor=e06c75ff
+keyhlcolor=e06c75ff
+bshlcolor=e06c75
+verifcolor=abb2bf00
+timecolor=abb2bfff
+datecolor=abb2bfff

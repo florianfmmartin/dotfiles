@@ -1,2 +1,2 @@
 #!bin/sh
-bspwm
+exec bspwm

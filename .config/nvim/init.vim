@@ -1,4 +1,67 @@
-" config
+" plugged
+call plug#begin('~/.vim/plugged')
+
+" vimwiki
+Plug 'vimwiki/vimwiki'
+
+" whichkey
+Plug 'liuchengxu/vim-which-key'
+
+" colorscheme
+Plug 'joshdick/onedark.vim'
+
+" airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" tcomment
+Plug 'tomtom/tcomment_vim'
+
+" surronds
+Plug 'tpope/vim-surround'
+
+" colorize
+Plug 'ap/vim-css-color'
+
+" signify
+Plug 'mhinz/vim-signify'
+
+" lsp
+Plug 'autozimu/LanguageClient-neovim', {
+            \ 'branch': 'next',
+            \ 'do': 'bash install.sh',
+            \ }
+
+" polyglot
+Plug 'sheerun/vim-polyglot'
+
+" tmux
+Plug 'christoomey/vim-tmux-runner'
+
+" ranger
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
+
+" deoplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" float
+Plug 'ncm2/float-preview.nvim'
+
+" startify
+Plug 'mhinz/vim-startify'
+
+" tagbar
+Plug 'preservim/tagbar'
+
+" md preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+call plug#end()
 
 " whichkey
 source ~/.config/nvim/whichkey.vim
@@ -14,6 +77,9 @@ source ~/.config/nvim/colorscheme.vim
 
 " airline
 source ~/.config/nvim/airline.vim
+
+" wiki
+source ~/.config/nvim/wiki.vim
 
 " fzf
 source ~/.config/nvim/fzf.vim
@@ -42,83 +108,8 @@ source ~/.config/nvim/deoplete.vim
 " nerdtree
 source ~/.config/nvim/nerdtree.vim
 
+" lsp
+source ~/.config/nvim/lsp.vim
+
 " whichkey mapping
 nnoremap <silent> <leader> :WhichKey ','<CR>
-
-" lsp
-" source ~/.config/nvim/lsp.vim
-
-" treesitter
-" source ~/.config/nvim/treesitter.vim
-
-" tmux
-" source ~/.config/nvim/tmux.vim
-
-" nvim-tree-lua
-" source ~/.config/nvim/nvim-tree-lua.vim
-
-" " plugged
-" call plug#begin('~/.vim/plugged')
-"
-" " whichkey
-" Plug 'liuchengxu/vim-which-key'
-"
-" " colorscheme
-" Plug 'joshdick/onedark.vim'
-"
-" " airline
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-"
-" " fzf
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-"
-" " tcomment
-" Plug 'tomtom/tcomment_vim'
-"
-" " surronds
-" Plug 'tpope/vim-surround'
-"
-" " colorize
-" Plug 'ap/vim-css-color'
-"
-" " signify
-" Plug 'mhinz/vim-signify'
-"
-" " lsp
-" Plug 'autozimu/LanguageClient-neovim', {
-"             \ 'branch': 'next',
-"             \ 'do': 'bash install.sh',
-"             \ }
-"
-" " treesitter
-" Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-"
-" " polyglot
-" Plug 'sheerun/vim-polyglot'
-"
-" " tmux
-" Plug 'christoomey/vim-tmux-runner'
-"
-" " ranger
-" Plug 'rbgrouleff/bclose.vim'
-" Plug 'francoiscabrol/ranger.vim'
-"
-" " deoplete
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"
-" " float
-" Plug 'ncm2/float-preview.nvim'
-"
-" " startify
-" Plug 'mhinz/vim-startify'
-"
-" " tagbar
-" Plug 'preservim/tagbar'
-"
-" " nvim-tree-lua
-" Plug 'kyazdani42/nvim-tree.lua'
-" Plug 'kyazdani42/nvim-web-devicons'
-"
-" call plug#end()

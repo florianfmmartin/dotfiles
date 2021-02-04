@@ -1,11 +1,11 @@
 #!/bin/sh
-PAD=$( bspc config top_padding )
+PAD=$(bspc config top_padding)
 
-if [ $PAD == 30 ]
+if [ $PAD == 22 ]
 then
-        bspc config top_padding 0
         polybar-msg cmd hide
+        bspc config top_padding 0
 else
-        bspc config top_padding 30
         polybar-msg cmd show
+        bspc config top_padding 22
 fi

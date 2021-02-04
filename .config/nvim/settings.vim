@@ -46,6 +46,7 @@ set breakindentopt="shift:4, sbr"
 set showbreak=>-->
 
 " config ui
+set nocompatible
 filetype plugin on
 syntax on
 set conceallevel=0
@@ -106,10 +107,10 @@ set list
 set splitright
 set splitbelow
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-Left> <C-W><C-H>
+nnoremap <C-Down> <C-W><C-J>
+nnoremap <C-Up> <C-W><C-K>
+nnoremap <C-Right> <C-W><C-L>
 
 " split resize
 nnoremap <leader>vk :vertical-resize -2<CR>
@@ -166,6 +167,7 @@ let g:which_key_map.x = {
 
 " highlight yank
 au TextYankPost * silent! lua vim.highlight.on_yank() {timeout=800}
+let g:highlightedyank_highlight_duration = 300
 
 " spell checking
 au Filetype tex setlocal spell spelllang=fr

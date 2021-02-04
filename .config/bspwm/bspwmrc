@@ -1,13 +1,12 @@
 #!/usr/bin/env sh
 
 sxhkd &
-nitrogen --set-zoom-fill ~/git/dotfiles/simon_computer_one_dark.jpg &
+nitrogen --set-zoom-fill ~/git/dotfiles/planets.jpg &
 xsetroot -cursor_name left_ptr &
 polybar -r main &
 xmodmap.sh &
 wmname LG3D &
 picom --config ~/.config/picom/picom.conf &
-# pulseaudio &
 
 if [ $(bspc query -M | wc -l) -eq 2 ]; then
     xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
@@ -17,20 +16,28 @@ else
     bspc monitor eDP-1 -d I II III IV V VI
 fi
 
-bspc config border_width          0
-bspc config window_gap            0
+bspc config border_width          4
+bspc config window_gap            12
 
 bspc config normal_border_color  "#4b5263"
 bspc config active_border_color  "#4b5263"
 bspc config focused_border_color "#5c6370"
 
-bspc config top_padding           30
-
 bspc config split_ratio           0.52
-bspc config borderless_monocle    true
+bspc config borderless_monocle    false
 bspc config gapless_monocle       false
+
+bspc config pointer_modifier shift
+bspc config pointer_action1 move
+bspc config pointer_action3 resize_side
+bspc config pointer_action2 resize_corner
 
 bspc config focus_follows_pointer true
 
 bspc rule -a Zathura state=tiled
+
+bspc config top_padding           22
+
+bartoggle.sh
+bartoggle.sh
 
