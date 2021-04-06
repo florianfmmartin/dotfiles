@@ -1,6 +1,6 @@
 body {
-    background: #282c34;
-    color: #abb2bf;
+    background: #282828;
+    color: #ebdbb2;
 }
 
 .container {
@@ -14,7 +14,7 @@ body {
 
 .set {
     padding: 1.5em;
-    background-color: #323640;
+    background-color: #504945;
     border-radius: 3px;
     font-family: "Fira Code";
     font-size: .85rem;
@@ -31,12 +31,12 @@ body {
 .title {
     font-family: "Fira Code";
     font-size: 1.2rem;
-    color: #abb2bf;
+    color: #ebdbb2;
 }
 
 .bookmark {
     text-decoration: none;
-    color: #abb2bf;
+    color: #ebdbb2;
     display:block;
     margin: 1.5em 0em;
 }

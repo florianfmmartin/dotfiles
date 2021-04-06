@@ -2,13 +2,14 @@
 call plug#begin('~/.vim/plugged')
 
 " vimwiki
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 
 " whichkey
 Plug 'liuchengxu/vim-which-key'
 
 " colorscheme
-Plug 'joshdick/onedark.vim'
+" Plug 'joshdick/onedark.vim'
+Plug 'sainnhe/gruvbox-material'
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -31,23 +32,23 @@ Plug 'ap/vim-css-color'
 Plug 'mhinz/vim-signify'
 
 " lsp
-Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+            " \ 'branch': 'next',
+            " \ 'do': 'bash install.sh',
+            " \ }
 
 " polyglot
 Plug 'sheerun/vim-polyglot'
 
 " tmux
-Plug 'christoomey/vim-tmux-runner'
+" Plug 'christoomey/vim-tmux-runner'
 
 " ranger
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
 
 " deoplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " float
 Plug 'ncm2/float-preview.nvim'
@@ -56,10 +57,13 @@ Plug 'ncm2/float-preview.nvim'
 Plug 'mhinz/vim-startify'
 
 " tagbar
-Plug 'preservim/tagbar'
+" Plug 'preservim/tagbar'
 
 " md preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+" coc
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -79,7 +83,7 @@ source ~/.config/nvim/colorscheme.vim
 source ~/.config/nvim/airline.vim
 
 " wiki
-source ~/.config/nvim/wiki.vim
+" source ~/.config/nvim/wiki.vim
 
 " fzf
 source ~/.config/nvim/fzf.vim
@@ -100,16 +104,36 @@ source ~/.config/nvim/float.vim
 source ~/.config/nvim/startify.vim
 
 " tagbar
-source ~/.config/nvim/tagbar.vim
+" source ~/.config/nvim/tagbar.vim
 
 " deoplete
-source ~/.config/nvim/deoplete.vim
+" source ~/.config/nvim/deoplete.vim
 
 " nerdtree
-source ~/.config/nvim/nerdtree.vim
+" source ~/.config/nvim/nerdtree.vim
 
 " lsp
-source ~/.config/nvim/lsp.vim
+" source ~/.config/nvim/lsp.vim
+
+" coc
+" let g:coc_global_extensions = [
+"                             \ 'coc-css',
+"                             \ 'coc-emmet',
+"                             \ 'coc-eslint',
+"                             \ 'coc-html',
+"                             \ 'coc-html-css-support',
+"                             \ 'coc-json',
+"                             \ 'coc-markdownlint',
+"                             \ 'coc-prettier',
+"                             \ 'coc-pyright',
+"                             \ 'coc-sh',
+"                             \ 'coc-snippets',
+"                             \ 'coc-tailwindcss',
+"                             \ 'coc-tsserver',
+"                             \ 'coc-vetur',
+"                             \ 'coc-vimlsp',
+"                             \ 'coc-yank'
+"                             \ ]
 
 " whichkey mapping
 nnoremap <silent> <leader> :WhichKey ','<CR>

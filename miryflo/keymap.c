@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
   XXXXXXX, MY_COLN, MY_RPRN, MY_RBRA, MY_RBRC, MY_RARR,                   _______,    S(KC_7), S(KC_8), S(KC_9), _______, XXXXXXX, \
   XXXXXXX, MY_SCLN, MY_LPRN, MY_LBRA, MY_LBRC, MY_LARR,                   S(KC_MINS), S(KC_4), S(KC_5), S(KC_6), _______, XXXXXXX, \
-  XXXXXXX, _______, MY_BSLH, MY_PIPE, MY_TILD, MY_HASH, XXXXXXX, XXXXXXX, S(KC_EQL) , S(KC_1), S(KC_2), S(KC_3), _______, XXXXXXX, \
+  XXXXXXX, MY_HASH, MY_BSLH, MY_PIPE, MY_TILD, S(KC_2), XXXXXXX, XXXXXXX, S(KC_EQL) , S(KC_1), ALGR(KC_2), S(KC_3), _______, XXXXXXX, \
                              XXXXXXX, _______, MY_CEDL, MY_CIRC, _______,    _______, _______, XXXXXXX \
 )
 };

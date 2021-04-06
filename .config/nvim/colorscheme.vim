@@ -1,3 +1,4 @@
 " colorscheme config
 set termguicolors
-colorscheme onedark
+let g:gruvbox_material_background = 'medium'
+colorscheme gruvbox-material
